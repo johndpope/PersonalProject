@@ -1,3 +1,62 @@
 [
-
+  {
+    "libraryIdentifier" : "7eb017d1437e7015345283194be8d3dc",
+    "format" : "model",
+    "displayName" : "toy_robot_vintage.usdz"
+  },
+  {
+    "libraryIdentifier" : "a3a7caf7bc09e142e7e2f5b2887f5430",
+    "format" : "model",
+    "displayName" : "level1.usdz"
+  },
+  {
+    "libraryIdentifier" : "2273c7495d62e8d154e9482b5205fd0d",
+    "format" : "model",
+    "displayName" : "test.usdz"
+  },
+  {
+    "libraryIdentifier" : "ca09056055e95e06d5bf5860a8e3c17c",
+    "format" : "model",
+    "displayName" : "test.usdz"
+  },
+  {
+    "libraryIdentifier" : "03e5a07f82bb42628d88434b6a103a16",
+    "format" : "model",
+    "displayName" : "IrisMechanical.usdz"
+  },
+  {
+    "libraryIdentifier" : "10a37785c8c43e9666e975e358710988",
+    "format" : "model",
+    "displayName" : "IrisMechanical.usdz"
+  },
+  {
+    "libraryIdentifier" : "a33986153f12a8d7f2e2c3a52c58ca76",
+    "format" : "model",
+    "displayName" : "level1.usdz"
+  },
+  {
+    "libraryIdentifier" : "09b1abdde93c6f56c9af8ba43d6a725e",
+    "format" : "model",
+    "displayName" : "level1.usdz"
+  },
+  {
+    "libraryIdentifier" : "60480bcef3a362c6ce99cf23c1b1a9dc",
+    "format" : "model",
+    "displayName" : "balk.usdz"
+  },
+  {
+    "libraryIdentifier" : "1cf91953b2d1313fb3f67aa9b6a4f7c1",
+    "format" : "model",
+    "displayName" : "balk.usdz"
+  },
+  {
+    "libraryIdentifier" : "e53f63a94671df06700916bc662b4b8a",
+    "format" : "model",
+    "displayName" : "balk.usdz"
+  },
+  {
+    "libraryIdentifier" : "f3e04333f2b7ec817b7c99dc70d4a190",
+    "format" : "model",
+    "displayName" : "balk.usdz"
+  }
 ]

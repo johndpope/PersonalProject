@@ -11,15 +11,15 @@ import RealityKit
 
 class ViewController: UIViewController {
     
+    //the app's root view
     @IBOutlet var arView: ARView!
+    
+    //button that start or restarts the game
+    @IBOutlet weak var gameActionButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load the "Box" scene from the "Experience" Reality File
-        let boxAnchor = try! Experience.loadBox()
-        
-        // Add the box anchor to the scene
-        arView.scene.anchors.append(boxAnchor)
     }
 }
