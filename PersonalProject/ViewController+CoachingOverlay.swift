@@ -14,13 +14,13 @@ extension ViewController: ARCoachingOverlayViewDelegate {
     /// - Tag: HideUI
     func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
         startGameButton.isHidden = true
-        playButton.isHidden = true
-        pauseButton.isHidden = true
+        startButton.isHidden = true
+        stopButton.isHidden = true
     }
     
     /// - Tag: PresentUI
     func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        startGameButton.isHidden = false
+        startButton.isHidden = false
     }
 
     /// - Tag: StartOver

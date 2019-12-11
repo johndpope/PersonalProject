@@ -15,6 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TB9-M2-Cvd" userLabel="Coaching Overlay" customClass="ARCoachingOverlayView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNh-7E-JJj" userLabel="Start Action Button">
                                 <rect key="frame" x="60.5" y="403" width="293" height="90"/>
                                 <constraints>
@@ -26,17 +30,6 @@
                                     <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y54-EL-4EF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sh9-mr-sb5" userLabel="Pause Button">
-                                <rect key="frame" x="20" y="737" width="174" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="Qg6-OY-J4Z"/>
-                                    <constraint firstAttribute="width" constant="174" id="fIf-oa-raq"/>
-                                </constraints>
-                                <state key="normal" image="stop"/>
-                                <connections>
-                                    <action selector="pauseAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C4e-0R-jZY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ld0-ap-tvK" userLabel="Play Button">
                                 <rect key="frame" x="294" y="762" width="100" height="100"/>
                                 <constraints>
@@ -45,13 +38,28 @@
                                 </constraints>
                                 <state key="normal" image="start"/>
                                 <connections>
-                                    <action selector="makeBridge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ymj-VB-aK5"/>
+                                    <action selector="startBridge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ymj-VB-aK5"/>
                                 </connections>
                             </button>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TB9-M2-Cvd" userLabel="Coaching Overlay" customClass="ARCoachingOverlayView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sh9-mr-sb5" userLabel="Pause Button">
+                                <rect key="frame" x="294" y="762" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="6AI-xw-KES"/>
+                                    <constraint firstAttribute="width" constant="100" id="bFn-jV-z7u"/>
+                                </constraints>
+                                <state key="normal" image="stop"/>
+                                <connections>
+                                    <action selector="stopBridge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C4e-0R-jZY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNf-m2-lap">
+                                <rect key="frame" x="139" y="50" width="135" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -60,9 +68,9 @@
                             <constraint firstItem="TB9-M2-Cvd" firstAttribute="top" secondItem="xaF-UF-2IL" secondAttribute="top" id="FBJ-NG-mYT"/>
                             <constraint firstItem="Ld0-ap-tvK" firstAttribute="bottom" secondItem="6Bo-uy-1eC" secondAttribute="bottom" id="G2y-LA-Yl7"/>
                             <constraint firstItem="6Bo-uy-1eC" firstAttribute="trailing" secondItem="Ld0-ap-tvK" secondAttribute="trailing" constant="20" id="HO5-3m-zJz"/>
-                            <constraint firstItem="6Bo-uy-1eC" firstAttribute="bottom" secondItem="sh9-mr-sb5" secondAttribute="bottom" id="jON-AQ-EU5"/>
+                            <constraint firstItem="6Bo-uy-1eC" firstAttribute="bottom" secondItem="sh9-mr-sb5" secondAttribute="bottom" id="hoN-aQ-8xm"/>
+                            <constraint firstItem="6Bo-uy-1eC" firstAttribute="trailing" secondItem="sh9-mr-sb5" secondAttribute="trailing" constant="20" id="iZP-0K-MzU"/>
                             <constraint firstItem="dNh-7E-JJj" firstAttribute="centerX" secondItem="xaF-UF-2IL" secondAttribute="centerX" id="lR1-sH-NcI"/>
-                            <constraint firstItem="sh9-mr-sb5" firstAttribute="leading" secondItem="6Bo-uy-1eC" secondAttribute="leading" constant="20" id="ouN-nA-e2N"/>
                             <constraint firstItem="dNh-7E-JJj" firstAttribute="centerY" secondItem="xaF-UF-2IL" secondAttribute="centerY" id="qx0-jr-mRC"/>
                             <constraint firstAttribute="bottom" secondItem="TB9-M2-Cvd" secondAttribute="bottom" id="ytI-4c-h7s"/>
                         </constraints>
@@ -71,9 +79,10 @@
                     <connections>
                         <outlet property="arView" destination="xaF-UF-2IL" id="RW1-82-SCb"/>
                         <outlet property="overlayView" destination="TB9-M2-Cvd" id="iHt-oF-QkT"/>
-                        <outlet property="pauseButton" destination="sh9-mr-sb5" id="6Lz-IY-Zvt"/>
-                        <outlet property="playButton" destination="Ld0-ap-tvK" id="avy-ho-4Q4"/>
+                        <outlet property="startButton" destination="Ld0-ap-tvK" id="avy-ho-4Q4"/>
                         <outlet property="startGameButton" destination="dNh-7E-JJj" id="QvD-dP-ujM"/>
+                        <outlet property="stopButton" destination="sh9-mr-sb5" id="6Lz-IY-Zvt"/>
+                        <outlet property="timeLabel" destination="CNf-m2-lap" id="cxh-NS-Uo5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
