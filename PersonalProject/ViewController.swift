@@ -35,6 +35,11 @@ class ViewController: UIViewController {
     
     var score:Int = 0
     
+    ///game over screen
+    @IBOutlet weak var gameOverView: UIView!
+    @IBOutlet weak var endScoreLabel: UILabel!
+    @IBOutlet weak var endScoreView: UIView!
+    
     ///platform
     var platformMesh: MeshResource?
     var platformMaterial: SimpleMaterial?
@@ -53,6 +58,9 @@ class ViewController: UIViewController {
         scoreLabel.isHidden = true
         scoreLabel.layer.masksToBounds = true
         scoreLabel.layer.cornerRadius = 5
+        endScoreView.layer.masksToBounds = true
+        endScoreView.layer.cornerRadius = 5
+        gameOverView.isHidden = true
         
         ///timer
         timeLabel.text = String(counter)
@@ -142,6 +150,9 @@ class ViewController: UIViewController {
         } else {
             ///game over
             timeLabel.text = "GAME OVER"
+            
+            gameOverView.isHidden = false
+            endScoreLabel.text = String(score)
         }
     }
     

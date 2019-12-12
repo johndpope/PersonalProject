@@ -74,18 +74,66 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAR-vf-oAF" userLabel="Game Over View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93z-JJ-y34" userLabel="End Score View">
+                                        <rect key="frame" x="57" y="360.5" width="300" height="175"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7N-4e-I2W">
+                                                <rect key="frame" x="108.5" y="21" width="83" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="JHa-hS-lAT"/>
+                                                    <constraint firstAttribute="width" constant="83" id="vSg-Tt-Epr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVR-6Q-V5O">
+                                                <rect key="frame" x="23" y="61" width="254" height="86"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="254" id="491-lw-9SO"/>
+                                                    <constraint firstAttribute="height" constant="86" id="wBy-mu-By5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="72"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.8901960784313725" green="0.20000000000000001" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="C7N-4e-I2W" firstAttribute="centerX" secondItem="93z-JJ-y34" secondAttribute="centerX" id="He0-Ar-EBE"/>
+                                            <constraint firstAttribute="height" constant="175" id="Q86-eY-i6n"/>
+                                            <constraint firstItem="PVR-6Q-V5O" firstAttribute="top" secondItem="C7N-4e-I2W" secondAttribute="bottom" constant="12" id="VjA-Yi-eVB"/>
+                                            <constraint firstAttribute="width" constant="300" id="bYv-Sb-Uzn"/>
+                                            <constraint firstItem="PVR-6Q-V5O" firstAttribute="centerX" secondItem="93z-JJ-y34" secondAttribute="centerX" id="kZG-7f-EdZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="PVR-6Q-V5O" secondAttribute="bottom" constant="28" id="q4b-DR-svf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33000000000000002" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="93z-JJ-y34" firstAttribute="centerY" secondItem="fAR-vf-oAF" secondAttribute="centerY" id="XDa-pC-sJF"/>
+                                    <constraint firstItem="93z-JJ-y34" firstAttribute="centerX" secondItem="fAR-vf-oAF" secondAttribute="centerX" id="YhO-Bw-yQU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="TB9-M2-Cvd" firstAttribute="leading" secondItem="6Bo-uy-1eC" secondAttribute="leading" id="9S1-Js-EkY"/>
                             <constraint firstItem="TB9-M2-Cvd" firstAttribute="trailing" secondItem="6Bo-uy-1eC" secondAttribute="trailing" id="9S7-kE-FKb"/>
+                            <constraint firstItem="fAR-vf-oAF" firstAttribute="trailing" secondItem="6Bo-uy-1eC" secondAttribute="trailing" id="DgP-w1-MGx"/>
                             <constraint firstItem="TB9-M2-Cvd" firstAttribute="top" secondItem="xaF-UF-2IL" secondAttribute="top" id="FBJ-NG-mYT"/>
                             <constraint firstItem="Ld0-ap-tvK" firstAttribute="bottom" secondItem="6Bo-uy-1eC" secondAttribute="bottom" id="G2y-LA-Yl7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="CNf-m2-lap" secondAttribute="bottom" constant="30" id="Gcs-0f-Cck"/>
                             <constraint firstItem="6Bo-uy-1eC" firstAttribute="trailing" secondItem="Ld0-ap-tvK" secondAttribute="trailing" constant="20" id="HO5-3m-zJz"/>
+                            <constraint firstItem="fAR-vf-oAF" firstAttribute="leading" secondItem="6Bo-uy-1eC" secondAttribute="leading" id="T4f-3n-42P"/>
+                            <constraint firstItem="fAR-vf-oAF" firstAttribute="top" secondItem="xaF-UF-2IL" secondAttribute="top" id="Te2-4e-M3f"/>
                             <constraint firstItem="6Bo-uy-1eC" firstAttribute="bottom" secondItem="sh9-mr-sb5" secondAttribute="bottom" id="hoN-aQ-8xm"/>
                             <constraint firstItem="6Bo-uy-1eC" firstAttribute="trailing" secondItem="sh9-mr-sb5" secondAttribute="trailing" constant="20" id="iZP-0K-MzU"/>
                             <constraint firstItem="dNh-7E-JJj" firstAttribute="centerX" secondItem="xaF-UF-2IL" secondAttribute="centerX" id="lR1-sH-NcI"/>
+                            <constraint firstAttribute="bottom" secondItem="fAR-vf-oAF" secondAttribute="bottom" id="oWK-uk-CbO"/>
                             <constraint firstItem="dNh-7E-JJj" firstAttribute="centerY" secondItem="xaF-UF-2IL" secondAttribute="centerY" id="qx0-jr-mRC"/>
                             <constraint firstItem="emr-Tq-W5y" firstAttribute="centerX" secondItem="xaF-UF-2IL" secondAttribute="centerX" id="vnq-H0-cs8"/>
                             <constraint firstAttribute="bottom" secondItem="TB9-M2-Cvd" secondAttribute="bottom" id="ytI-4c-h7s"/>
@@ -96,6 +144,9 @@
                     </view>
                     <connections>
                         <outlet property="arView" destination="xaF-UF-2IL" id="RW1-82-SCb"/>
+                        <outlet property="endScoreLabel" destination="PVR-6Q-V5O" id="350-3a-eRL"/>
+                        <outlet property="endScoreView" destination="93z-JJ-y34" id="hFB-Em-bv1"/>
+                        <outlet property="gameOverView" destination="fAR-vf-oAF" id="6St-uw-uGZ"/>
                         <outlet property="overlayView" destination="TB9-M2-Cvd" id="iHt-oF-QkT"/>
                         <outlet property="scoreLabel" destination="emr-Tq-W5y" id="V1r-IW-s31"/>
                         <outlet property="startButton" destination="Ld0-ap-tvK" id="avy-ho-4Q4"/>
