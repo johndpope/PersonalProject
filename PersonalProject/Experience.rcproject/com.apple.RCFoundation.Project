@@ -324,6 +324,91 @@
                     }
                   ],
                   "__version" : 2
+                },
+                {
+                  "__content" : [
+                    {
+                      "actionGroups" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurations" : [
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "angularCoefficient" : 1,
+                                          "duration" : 1,
+                                          "isTransformInitKeyPath" : true,
+                                          "linearCoefficient" : 1,
+                                          "location" : [
+                                            0,
+                                            -0.0010000000474974513,
+                                            0
+                                          ],
+                                          "moveEase" : "easeInOut",
+                                          "orientation" : [
+                                            0,
+                                            0,
+                                            0.70710676908493042,
+                                            0.70710676908493042
+                                          ],
+                                          "respectPhysics" : false,
+                                          "target" : [
+                                            "E136C9C6-EADC-479B-AF3F-9F111F8114E4"
+                                          ]
+                                        },
+                                        "name" : {
+                                          "arguments" : "local",
+                                          "type" : "transform"
+                                        }
+                                      },
+                                      "identifier" : "C7E09338-5A5F-465B-8837-26AB788299A8",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                }
+                              ],
+                              "identifier" : "D56E6D58-F1C6-4D20-B61A-E87B3C01FE4E",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ],
+                      "color" : [
+                        0.56078433990478516,
+                        0.47058823704719543,
+                        0.80392158031463623,
+                        1
+                      ],
+                      "identifier" : "D2A16DBC-1D19-48D0-A481-80F3D4140D64",
+                      "isEnabled" : true,
+                      "isLooping" : false,
+                      "isModal" : false,
+                      "name" : "ResetBridge",
+                      "triggers" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurationBox" : {
+                                "configuration" : {
+                                  "userIdentifier" : "ResetBridge"
+                                },
+                                "name" : "custom"
+                              },
+                              "identifier" : "671C4F93-B3AD-488E-8718-5D28F8A86458",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ]
+                    }
+                  ],
+                  "__version" : 2
                 }
               ],
               "gravity" : [
@@ -346,6 +431,7 @@
                   "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
                   "7FECDEE9-9829-417E-BE2A-5263C66AF934" : null,
                   "23B16FCB-572A-4A30-BD8C-204EBAE12379" : null,
+                  "29C94892-E361-4909-83F4-41BB48C977F9" : null,
                   "40FBFEAC-35E7-4F3F-9E19-357A13BB31C6" : null,
                   "55F36CBE-A98D-474D-9193-492B2CC50101" : null,
                   "199E9BED-EA89-4A7F-B66F-B44D351CAC68" : null,
@@ -541,12 +627,12 @@
                     },
                     "transform" : {
                       "matrix" : [
-                        5.9604641222676946e-08,
-                        0.99999988079071045,
+                        5.9604637669963267e-08,
+                        0.99999982118606567,
                         0,
                         0,
-                        -0.99999988079071045,
-                        5.9604641222676946e-08,
+                        -0.99999982118606567,
+                        5.9604637669963267e-08,
                         0,
                         0,
                         0,
@@ -578,9 +664,9 @@
                   0.34492886066436768,
                   0.9249839186668396,
                   0,
-                  0.053993444889783859,
-                  0.12847675383090973,
-                  0.16481900215148926,
+                  0.098985165357589722,
+                  0.17280939221382141,
+                  0.24146480858325958,
                   1
                 ],
                 "sceneTransform" : [

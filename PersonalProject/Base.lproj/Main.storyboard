@@ -52,12 +52,26 @@
                                     <action selector="stopBridge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C4e-0R-jZY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNf-m2-lap">
-                                <rect key="frame" x="139" y="50" width="135" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNf-m2-lap">
+                                <rect key="frame" x="139.5" y="794" width="135" height="38"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="Apg-RT-9Xi"/>
+                                    <constraint firstAttribute="height" constant="38" id="Vxb-Cu-gtB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emr-Tq-W5y">
+                                <rect key="frame" x="162" y="64" width="90" height="50"/>
+                                <color key="backgroundColor" red="0.8901960784313725" green="0.20000000000000001" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="S86-S9-0zF"/>
+                                    <constraint firstAttribute="width" constant="90" id="xzw-Of-htn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -67,18 +81,23 @@
                             <constraint firstItem="TB9-M2-Cvd" firstAttribute="trailing" secondItem="6Bo-uy-1eC" secondAttribute="trailing" id="9S7-kE-FKb"/>
                             <constraint firstItem="TB9-M2-Cvd" firstAttribute="top" secondItem="xaF-UF-2IL" secondAttribute="top" id="FBJ-NG-mYT"/>
                             <constraint firstItem="Ld0-ap-tvK" firstAttribute="bottom" secondItem="6Bo-uy-1eC" secondAttribute="bottom" id="G2y-LA-Yl7"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="CNf-m2-lap" secondAttribute="bottom" constant="30" id="Gcs-0f-Cck"/>
                             <constraint firstItem="6Bo-uy-1eC" firstAttribute="trailing" secondItem="Ld0-ap-tvK" secondAttribute="trailing" constant="20" id="HO5-3m-zJz"/>
                             <constraint firstItem="6Bo-uy-1eC" firstAttribute="bottom" secondItem="sh9-mr-sb5" secondAttribute="bottom" id="hoN-aQ-8xm"/>
                             <constraint firstItem="6Bo-uy-1eC" firstAttribute="trailing" secondItem="sh9-mr-sb5" secondAttribute="trailing" constant="20" id="iZP-0K-MzU"/>
                             <constraint firstItem="dNh-7E-JJj" firstAttribute="centerX" secondItem="xaF-UF-2IL" secondAttribute="centerX" id="lR1-sH-NcI"/>
                             <constraint firstItem="dNh-7E-JJj" firstAttribute="centerY" secondItem="xaF-UF-2IL" secondAttribute="centerY" id="qx0-jr-mRC"/>
+                            <constraint firstItem="emr-Tq-W5y" firstAttribute="centerX" secondItem="xaF-UF-2IL" secondAttribute="centerX" id="vnq-H0-cs8"/>
                             <constraint firstAttribute="bottom" secondItem="TB9-M2-Cvd" secondAttribute="bottom" id="ytI-4c-h7s"/>
+                            <constraint firstItem="CNf-m2-lap" firstAttribute="centerX" secondItem="xaF-UF-2IL" secondAttribute="centerX" id="zgU-mz-iZu"/>
+                            <constraint firstItem="emr-Tq-W5y" firstAttribute="top" secondItem="xaF-UF-2IL" secondAttribute="topMargin" constant="20" id="zxc-PR-Mxv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Bo-uy-1eC"/>
                     </view>
                     <connections>
                         <outlet property="arView" destination="xaF-UF-2IL" id="RW1-82-SCb"/>
                         <outlet property="overlayView" destination="TB9-M2-Cvd" id="iHt-oF-QkT"/>
+                        <outlet property="scoreLabel" destination="emr-Tq-W5y" id="V1r-IW-s31"/>
                         <outlet property="startButton" destination="Ld0-ap-tvK" id="avy-ho-4Q4"/>
                         <outlet property="startGameButton" destination="dNh-7E-JJj" id="QvD-dP-ujM"/>
                         <outlet property="stopButton" destination="sh9-mr-sb5" id="6Lz-IY-Zvt"/>
