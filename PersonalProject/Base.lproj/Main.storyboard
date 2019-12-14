@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,20 +66,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNf-m2-lap">
-                                        <rect key="frame" x="187.5" y="778" width="39" height="38"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="38" id="Vxb-Cu-gtB"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="dNh-7E-JJj" firstAttribute="centerY" secondItem="khS-qK-ZvL" secondAttribute="centerY" id="4qf-RR-rgu"/>
-                                    <constraint firstItem="CNf-m2-lap" firstAttribute="centerX" secondItem="khS-qK-ZvL" secondAttribute="centerX" id="6ai-Ul-NFi"/>
                                     <constraint firstAttribute="bottom" secondItem="Ld0-ap-tvK" secondAttribute="bottom" constant="50" id="K3s-t8-fXk"/>
                                     <constraint firstAttribute="trailing" secondItem="Ld0-ap-tvK" secondAttribute="trailing" constant="20" id="QNr-OF-Y7c"/>
                                     <constraint firstItem="dNh-7E-JJj" firstAttribute="centerX" secondItem="khS-qK-ZvL" secondAttribute="centerX" id="axx-Wq-HMd"/>
@@ -87,7 +76,6 @@
                                     <constraint firstItem="emr-Tq-W5y" firstAttribute="top" secondItem="khS-qK-ZvL" secondAttribute="top" constant="60" id="mEa-ji-56Z"/>
                                     <constraint firstAttribute="trailing" secondItem="sh9-mr-sb5" secondAttribute="trailing" constant="20" id="mk5-Yt-xHd"/>
                                     <constraint firstAttribute="bottom" secondItem="sh9-mr-sb5" secondAttribute="bottom" constant="50" id="nAV-ek-HAZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="CNf-m2-lap" secondAttribute="bottom" constant="80" id="veN-2H-V8K"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAR-vf-oAF" userLabel="Game Over View">
@@ -175,7 +163,6 @@
                         <outlet property="startButton" destination="Ld0-ap-tvK" id="avy-ho-4Q4"/>
                         <outlet property="startGameButton" destination="dNh-7E-JJj" id="QvD-dP-ujM"/>
                         <outlet property="stopButton" destination="sh9-mr-sb5" id="6Lz-IY-Zvt"/>
-                        <outlet property="timeLabel" destination="CNf-m2-lap" id="cxh-NS-Uo5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

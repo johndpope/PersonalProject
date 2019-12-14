@@ -16,10 +16,11 @@ class ViewController: UIViewController {
     
     @IBOutlet var arView: ARView!
     @IBOutlet weak var overlayView: ARCoachingOverlayView!
+    
+    ///game view
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
     ///game over screen
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var endScoreView: UIView!
     @IBOutlet weak var playAgainButton: UIButton!
     
-    var gameAnchor:Experience.Game!
+    var gameAnchor = AnchorEntity(plane: .horizontal)
     
     let coachingOverlay = ARCoachingOverlayView()
     
@@ -41,18 +42,20 @@ class ViewController: UIViewController {
     
     var score:Int = 0
     
+    var platformArray: [Platform] = []
+    var bridgeArray: [Bridge] = []
+    
+    ///starting platform
+    var startPlatform = Platform(width: 0.05, heigth: 0.1, depth: 0.05, xPos1: 0, yPos1: 0.05, xPos2: 0.05, yPos2: 0, material: SimpleMaterial(color: .black, isMetallic: false))
     ///platform
-    var platformMesh: MeshResource?
-    var platformMaterial: SimpleMaterial?
-    var newPlatform: ModelEntity?
+    var newPlatform: Platform = Platform(width: 0.05, heigth: 0.1, depth: 0.05, xPos1: 0, yPos1: 0.05, xPos2: 0, yPos2: 0.05, material: SimpleMaterial(color: .black, isMetallic: false))
+    ///bridge
+    var bridge: Bridge = Bridge(width: 0.001, heigth: 0.0001, depth: 0.05, xPos1: 0.024, yPos1: 0.1, material: SimpleMaterial(color: .blue, isMetallic: true))
     ///player
-    var playerMesh: MeshResource?
-    var playerMaterial: SimpleMaterial?
-    var player: ModelEntity?
+    var player: Player = Player(width: 0.02, heigth: 0.02, depth: 0.02, xPos: 0, yPos: 0.11, material: SimpleMaterial(color: .white, isMetallic: true), moveDistance: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameAnchor = try! Experience.loadGame()
         
         ///game buttons
         stopButton.isHidden = true
@@ -67,11 +70,8 @@ class ViewController: UIViewController {
         gameOverView.isHidden = true
         
         ///timer
-        timeLabel.text = String(counter)
         stopButton.isEnabled = false
         ///end timer
-                
-        gameAnchor.notifications.hideAtStart.post()
     }
     
     @IBAction func startGame(_ sender: UIButton) {
@@ -90,11 +90,14 @@ class ViewController: UIViewController {
         
         arView.scene.anchors.append(gameAnchor)
         
-        gameAnchor.notifications.gameStart.post()
-        
         createOcclusionFloor()
+        addNullPlatform()
+        addStartPlatform()
+        addNullBridge()
+        addBridge()
         addNewPlatform()
         addPlayer()
+        print(platformArray.count)
     }
     
     @IBAction func startBridge(_ sender: UIButton) {
@@ -110,12 +113,12 @@ class ViewController: UIViewController {
         
         timerCountBridge = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
-        gameAnchor.notifications.extrudeBridge.post()
+//        gameAnchor.notifications.extrudeBridge.post()
+        bridge.extrude()
     }
     
     @objc func updateTimer() {
         counter = counter + 0.1
-        timeLabel.text = String(format: "%.1f", counter)
     }
     
     @IBAction func stopBridge(_ sender: UIButton) {
@@ -129,72 +132,81 @@ class ViewController: UIViewController {
         
         print("\(randomDistance - 0.025 - (randomWidth/2)) < \((counter / 10) + 0.002) < \(randomDistance - 0.025 + (randomWidth/2))")
 
-        ///stop building bridge
-        gameAnchor.bridge?.stopAllAnimations(recursive: true)
-        gameAnchor.notifications.pauseAndRotate.post()
+        bridge.rotate()
         
         ///check if bridge is good or bad
-        timerAddPlatform = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(self.checkBridge), userInfo: nil, repeats: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.checkBridge()
+        }
     }
     
-    @objc func checkBridge() {
-        if (((counter / 10) + 0.008) > (randomDistance - 0.025 - (randomWidth/2))) && (((counter / 10) - 0.008) < randomDistance - 0.025 + (randomWidth/2)) {
+    func checkBridge() {
+        if (((counter / 10) + 0.002) > (randomDistance - 0.025 - (randomWidth/2))) && (((counter / 10) - 0.002) < randomDistance - 0.025 + (randomWidth/2)) {
             ///next level
-            timeLabel.text = "YOU MADE IT"
             
-            resetBridge()
-            
-            ///delete starting platform
-            gameAnchor.startPlatform?.position.y = -10
-            
-            ///move next platform to start position
-            newPlatform?.position.x = 0
-            
-            ///add a new platform
-            addNewPlatform()
-            
-            ///score
-            score = score + 1
-            scoreLabel.text = String(score)
-            
-            ///game buttons
-            startButton.isHidden = false
+            bridge.shorten()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                ///reset bridge positions
+                ///self.bridge.rotateBack()
+                
+                ///animation to next platform
+                self.platformArray.remove(at: 0)
+                self.bridgeArray.remove(at: 0)
+                self.addNewPlatform()
+                self.platformArray[0].sink()
+                self.bridgeArray[0].sink()
+                self.platformArray[1].slide()
+                self.platformArray[2].arise()
+                
+                ///game buttons
+                self.startButton.isHidden = false
+                
+                ///score
+                self.score = self.score + 1
+                self.scoreLabel.text = String(self.score)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.addBridge()
+                }
+            }
             
         } else {
-            ///game over
-            timeLabel.text = "GAME OVER"
-            
             ///game over view
             gameOverView.isHidden = false
             endScoreLabel.text = String(score)
         }
     }
     
-    func resetBridge() {
-        ///reset bridge positions
-        gameAnchor.bridge?.position.x = Float(randomWidth / 2)
-        gameAnchor.bridge?.transform.rotation = simd_quatf(angle: GLKMathDegreesToRadians(90), axis: SIMD3(x: 0, y: 0, z: 1))
-        gameAnchor.bridge?.position.y = 0.1
+    func addBridge() {
+        bridge = Bridge(width: 0.001, heigth: 0.0001, depth: 0.05, xPos1: platformArray[1].width/2, yPos1: 0.1, material: SimpleMaterial(color: .white, isMetallic: true))
+        bridge.add()
+        gameAnchor.addChild(bridge.bridge)
+        bridgeArray.append(bridge)
     }
     
-    @objc func addNewPlatform() {
+    func addStartPlatform() {
+        startPlatform = Platform(width: 0.05, heigth: 0.1, depth: 0.05, xPos1: 0, yPos1: 0.05, xPos2: 0, yPos2: 0.05, material: SimpleMaterial(color: .black, isMetallic: false))
+        startPlatform.add()
+        gameAnchor.addChild(startPlatform.platform)
+        platformArray.append(startPlatform)
+    }
+    
+    func addNewPlatform() {
         ///generate a random width and distance for new platform
         randomDistance = Double.random(in: 0.07...0.25)
         randomWidth = Double.random(in: 0.01...0.05)
         
         ///make a new platform
-        platformMesh = MeshResource.generateBox(width: Float(randomWidth), height: 0.1, depth: 0.05)
-        platformMaterial = SimpleMaterial(color: .red, isMetallic: false)
-        newPlatform = ModelEntity(mesh: platformMesh!, materials: [platformMaterial!])
-        newPlatform!.position.x = Float(randomDistance)
-        newPlatform!.position.y = 0.05
-        
-        gameAnchor.addChild(newPlatform!)
+        newPlatform = Platform(width: randomWidth, heigth: 0.1, depth: 0.05, xPos1: 0.4, yPos1: -0.1, xPos2: randomDistance, yPos2: 0.05, material: SimpleMaterial(color: .red, isMetallic: false))
+        newPlatform.add()
+        gameAnchor.addChild(newPlatform.platform)
+        newPlatform.arise()
+        platformArray.append(newPlatform)
     }
     
     func createOcclusionFloor() {
         ///make a floor that hides stuff below
-        let planeMesh = MeshResource.generatePlane(width: 0.5, depth: 0.5)
+        let planeMesh = MeshResource.generatePlane(width: 5, depth: 5)
         let materialForOcclusion = OcclusionMaterial()
         let occlusionPlane = ModelEntity(mesh: planeMesh, materials: [materialForOcclusion])
         occlusionPlane.position.y = -0.001
@@ -204,14 +216,7 @@ class ViewController: UIViewController {
     
     func addPlayer() {
         ///make a player
-        playerMesh = MeshResource.generateBox(width: 0.02, height: 0.02, depth: 0.02)
-        playerMaterial = SimpleMaterial(color: .blue, isMetallic: true)
-        player = ModelEntity(mesh: playerMesh!, materials: [playerMaterial!])
-        player?.position.y = 0.11
-        player?.position.x = 0
-        player?.position.z = 0
-        
-        gameAnchor.addChild(player!)
+        player = Player(width: 0.02, heigth: 0.02, depth: 0.02, xPos: 0, yPos: 0.11, material: SimpleMaterial(color: .white, isMetallic: true), moveDistance: randomDistance)
     }
     
     @IBAction func playAgain(_ sender: UIButton) {
@@ -223,25 +228,24 @@ class ViewController: UIViewController {
         scoreLabel.text = String(score)
         
         ///remove platforms
-        gameAnchor.removeChild(newPlatform!)
-//        for child in self.children {
-//            if child.nibName == "newPlatform" {
-//                child.removeFromParent()
-//            }
-//        }
-        
         ///reset starting platform or make a new one?
-        gameAnchor.startPlatform?.position.y = 0.05
-        ///reset bridge
-        resetBridge()
-        gameAnchor.bridge?.position.x = 0.024
+//        gameAnchor.startPlatform?.position.y = 0.05
+//        gameAnchor.bridge?.position.x = 0.024
         
         
         ///game action buttons
         startButton.isHidden = false
         stopButton.isHidden = true
-        
-        addNewPlatform()
+    }
+    
+    func addNullPlatform() {
+        let nullPlatform = Platform(width: randomWidth, heigth: 0.1, depth: 0.05, xPos1: -0.15, yPos1: -0.1, xPos2: -0.15, yPos2: -0.1, material: SimpleMaterial(color: .red, isMetallic: false))
+        platformArray.append(nullPlatform)
+    }
+    
+    func addNullBridge() {
+        let nullBridge = Bridge(width: randomWidth, heigth: 0.1, depth: 0.05, xPos1: -0.15, yPos1: -0.1, material: SimpleMaterial(color: .red, isMetallic: false))
+        bridgeArray.append(nullBridge)
     }
     
 }
