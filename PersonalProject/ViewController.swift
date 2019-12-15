@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var overlayView: ARCoachingOverlayView!
     
     ///game view
+    @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -166,6 +167,7 @@ class ViewController: UIViewController {
             }
         } else {
             ///game over view
+            gameView.isHidden = true
             gameOverView.isHidden = false
             endScoreLabel.text = String(score)
             
@@ -177,14 +179,20 @@ class ViewController: UIViewController {
     }
     
     func addBridge() {
-        bridge = Bridge(width: 0.001, heigth: 0.0001, depth: 0.05, xPos: platformArray[1].width/2, yPos: 0.1, xSink: -0.151 + platformArray[0].width/2, material: SimpleMaterial(color: .white, isMetallic: true))
+        var texture = SimpleMaterial()
+        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "04"))
+        
+        bridge = Bridge(width: 0.001, heigth: 0.0001, depth: 0.05, xPos: platformArray[1].width/2, yPos: 0.1, xSink: -0.151 + platformArray[0].width/2, material: texture)
         bridge.add()
         gameAnchor.addChild(bridge.bridge)
         bridgeArray.append(bridge)
     }
     
     func addStartPlatform() {
-        startPlatform = Platform(width: 0.05, heigth: 0.1, depth: 0.05, xPos1: 0, yPos1: 0.05, xPos2: 0, yPos2: 0.05, material: SimpleMaterial(color: .black, isMetallic: false))
+        var texture = SimpleMaterial()
+        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "04"))
+            
+        startPlatform = Platform(width: 0.05, heigth: 0.1, depth: 0.05, xPos1: 0, yPos1: 0.05, xPos2: 0, yPos2: 0.05, material: texture)
         startPlatform.add()
         gameAnchor.addChild(startPlatform.platform)
         platformArray.append(startPlatform)
@@ -223,6 +231,7 @@ class ViewController: UIViewController {
     @IBAction func playAgain(_ sender: UIButton) {
         ///hide game over view
         gameOverView.isHidden = true
+        gameView.isHidden = false
         
         ///remove objects from previous game
         for element in platformArray {
@@ -266,6 +275,17 @@ class ViewController: UIViewController {
         addBridge()
         addNewPlatform()
         addPlayer()
+        
+        placeObject(named: "cloud", x: -0.05, y: 0.15, z: -0.15, scale: SIMD3(x: 0.1, y: 0.1, z: 0.1))
+        placeObject(named: "cloud", x: -0.05, y: 0.15, z: -0.15, scale: SIMD3(x: 0.1, y: 0.1, z: 0.1))
     }
     
+    func placeObject(named entityName: String, x: Double, y: Double, z: Double, scale: SIMD3<Float>) {
+        let entity = try! ModelEntity.loadModel(named: entityName)
+        entity.position.x = Float(x)
+        entity.position.y = Float(y)
+        entity.position.z = Float(z)
+        entity.scale = scale
+        gameAnchor.addChild(entity)
+    }
 }
