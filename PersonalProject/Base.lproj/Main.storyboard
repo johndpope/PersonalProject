@@ -125,6 +125,14 @@
                                             <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ubh-2T-stn"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7T-xw-rvP">
+                                        <rect key="frame" x="188" y="297" width="38" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.12983008917123287" green="0.0" blue="0.87321107813287679" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33000000000000002" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -157,6 +165,7 @@
                         <outlet property="endScoreLabel" destination="PVR-6Q-V5O" id="350-3a-eRL"/>
                         <outlet property="endScoreView" destination="93z-JJ-y34" id="hFB-Em-bv1"/>
                         <outlet property="gameOverView" destination="fAR-vf-oAF" id="6St-uw-uGZ"/>
+                        <outlet property="highscoreLabel" destination="E7T-xw-rvP" id="W4D-4B-lkb"/>
                         <outlet property="overlayView" destination="TB9-M2-Cvd" id="iHt-oF-QkT"/>
                         <outlet property="playAgainButton" destination="eGg-Qq-hiM" id="fji-q4-Zwh"/>
                         <outlet property="scoreLabel" destination="emr-Tq-W5y" id="V1r-IW-s31"/>

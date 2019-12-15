@@ -39,13 +39,13 @@ class Player {
     
     func walk() {
         var translationTransform = player.transform
-        translationTransform.translation = SIMD3<Float>(x: Float(moveDistance), y: 0, z: 0)
+        translationTransform.translation = SIMD3<Float>(x: Float(moveDistance), y: 0.11, z: 0)
         player.move(to: translationTransform, relativeTo: player.parent, duration: 2, timingFunction: .easeInOut)
     }
     
     func slide() {
         var translationTransform = player.transform
-        translationTransform.translation = SIMD3<Float>(x: -Float(moveDistance), y: 0, z: 0)
+        translationTransform.translation = SIMD3<Float>(x: 0, y: 0.11, z: 0)
         player.move(to: translationTransform, relativeTo: player.parent, duration: 2, timingFunction: .easeInOut)
     }
 }

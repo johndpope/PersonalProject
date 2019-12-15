@@ -13,17 +13,19 @@ class Bridge {
     var width: Double = 0.001
     var heigth: Double = 0.0001
     var depth: Double = 0.05
-    var x1: Double = 0.024
-    var y1: Double = 0.1
+    var x: Double = 0.024
+    var y: Double = 0.1
+    var xSink: Double = -0.126
     var material: SimpleMaterial = SimpleMaterial(color: .blue, isMetallic: true)
     var bridge: ModelEntity = ModelEntity()
     
-    init(width: Double, heigth: Double, depth: Double, xPos1: Double, yPos1: Double, material: SimpleMaterial) {
+    init(width: Double, heigth: Double, depth: Double, xPos: Double, yPos: Double, xSink: Double, material: SimpleMaterial) {
         self.width = width
         self.heigth = heigth
         self.depth = depth
-        self.x1 = xPos1
-        self.y1 = yPos1
+        self.x = xPos
+        self.y = yPos
+        self.xSink = xSink
         self.material = material
     }
     
@@ -31,8 +33,8 @@ class Bridge {
         let bridgeMesh = MeshResource.generateBox(width: Float(width), height: Float(heigth), depth: Float(depth))
         let bridgeMaterial = material
         bridge = ModelEntity(mesh: bridgeMesh, materials: [bridgeMaterial])
-        bridge.position.x = Float(x1)
-        bridge.position.y = Float(y1)
+        bridge.position.x = Float(x)
+        bridge.position.y = Float(y)
     }
     
     func extrude() {
@@ -61,7 +63,7 @@ class Bridge {
     
     func sink() {
         var translationTransform = bridge.transform
-        translationTransform.translation = SIMD3<Float>(x: -0.126, y: -0.05, z: 0)
+        translationTransform.translation = SIMD3<Float>(x: Float(xSink), y: -0.05, z: 0)
         bridge.move(to: translationTransform, relativeTo: bridge.parent, duration: 2, timingFunction: .easeInOut)
     }
 }
