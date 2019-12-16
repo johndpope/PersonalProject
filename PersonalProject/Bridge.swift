@@ -46,7 +46,7 @@ class Bridge {
     func shorten() {
         var scaleTransform = bridge.transform
         scaleTransform.scale = SIMD3<Float>(x: 1, y: 0.0001666666667, z: 1)
-        bridge.move(to: scaleTransform, relativeTo: bridge.parent, duration: 1, timingFunction: .linear)
+        bridge.move(to: scaleTransform, relativeTo: bridge.parent, duration: 0.5, timingFunction: .linear)
     }
     
     func rotate() {
@@ -74,7 +74,7 @@ class Bridge {
     func sink() {
         var translationTransform = bridge.transform
         translationTransform.translation = SIMD3<Float>(x: Float(xSink), y: -0.05, z: 0)
-        bridge.move(to: translationTransform, relativeTo: bridge.parent, duration: 2, timingFunction: .easeInOut)
+        bridge.move(to: translationTransform, relativeTo: bridge.parent, duration: 1, timingFunction: .easeInOut)
     }
 }
 

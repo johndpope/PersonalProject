@@ -42,18 +42,18 @@ class Platform {
     func slide() {
         var translationTransform = platform.transform
         translationTransform.translation = SIMD3<Float>(x: 0, y: 0.05, z: 0)
-        platform.move(to: translationTransform, relativeTo: platform.parent, duration: 2, timingFunction: .easeInOut)
+        platform.move(to: translationTransform, relativeTo: platform.parent, duration: 1, timingFunction: .easeInOut)
     }
     
     func sink() {
         var translationTransform = platform.transform
         translationTransform.translation = SIMD3<Float>(x: -0.15, y: -0.1, z: 0)
-        platform.move(to: translationTransform, relativeTo: platform.parent, duration: 2, timingFunction: .easeInOut)
+        platform.move(to: translationTransform, relativeTo: platform.parent, duration: 1, timingFunction: .easeInOut)
     }
     
     func arise() {
         var translationTransform = platform.transform
         translationTransform.translation = SIMD3<Float>(x: Float(x2), y: Float(y2), z: 0)
-        platform.move(to: translationTransform, relativeTo: platform.parent, duration: 2, timingFunction: .easeInOut)
+        platform.move(to: translationTransform, relativeTo: platform.parent, duration: 1, timingFunction: .easeInOut)
     }
 }

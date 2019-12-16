@@ -5,6 +5,7 @@
 //  Created by Robbe Verhoest on 11/11/2019.
 //  Copyright © 2019 Robbe Verhoest. All rights reserved.
 //
+//  3D Models: Free To Use - credits Poly by Google
 
 import ARKit
 import UIKit
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var environmentLabel: UILabel!
     
     ///game over screen
     @IBOutlet weak var gameOverView: UIView!
@@ -35,7 +37,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var highscoreLabel: UILabel!
     @IBOutlet weak var menuButton: UIButton!
     
-    var gameAnchor = AnchorEntity(plane: .horizontal)
+    var gameAnchor = AnchorEntity(plane: .horizontal, minimumBounds: [0.4, 0.3])
     
     let coachingOverlay = ARCoachingOverlayView()
     
@@ -50,6 +52,7 @@ class ViewController: UIViewController {
     
     var platformArray: [Platform] = []
     var bridgeArray: [Bridge] = []
+    var environmentArray: [ModelEntity] = []
     
     ///starting platform
     var startPlatform = Platform(width: 0.05, heigth: 0.1, depth: 0.05, xPos1: 0, yPos1: 0.05, xPos2: 0.05, yPos2: 0, material: SimpleMaterial(color: .black, isMetallic: false))
@@ -58,7 +61,10 @@ class ViewController: UIViewController {
     ///bridge
     var bridge: Bridge = Bridge(width: 0.001, heigth: 0.0001, depth: 0.05, xPos: 0.024, yPos: 0.1, xSink: -0.126, material: SimpleMaterial(color: .blue, isMetallic: true))
     ///player
-    var player: Player = Player(width: 0.02, heigth: 0.02, depth: 0.02, xPos: 0, yPos: 0.11, material: SimpleMaterial(color: .white, isMetallic: true), moveDistance: 0)
+    var player: Player = Player(xPos: 0, yPos: 0.11, material: SimpleMaterial(color: .white, isMetallic: true), moveDistance: 0)
+    ///texture
+    var texture: SimpleMaterial = SimpleMaterial()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,13 +75,11 @@ class ViewController: UIViewController {
         gameOverView.isHidden = true
         
         ///score label
-//        scoreLabel.isHidden = true
         scoreLabel.layer.masksToBounds = true
         scoreLabel.layer.cornerRadius = 5
         ///game over view
         endScoreView.layer.masksToBounds = true
         endScoreView.layer.cornerRadius = 5
-//        gameOverView.isHidden = true
         
         ///timer
         stopButton.isEnabled = false
@@ -84,6 +88,10 @@ class ViewController: UIViewController {
         //sound
         let audio = try! AudioFileResource.load(named: "algemeen.mp3", in: nil, inputMode: .spatial, loadingStrategy: .stream, shouldLoop: true)
         gameAnchor.prepareAudio(audio).play()
+        
+        environmentLabel.text = ""
+        createFarm()
+        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "grass"))
     }
     
     @IBAction func startGame(_ sender: UIButton) {
@@ -121,7 +129,6 @@ class ViewController: UIViewController {
         stopButton.isHidden = true
         
         ///timer
-        startButton.isEnabled = true
         stopButton.isEnabled = false
         
         timerCountBridge.invalidate()
@@ -138,10 +145,39 @@ class ViewController: UIViewController {
         if (((counter / 10) + 0.008) > (platformArray[2].x2 - platformArray[2].width/2 - platformArray[1].width/2) && (((counter / 10) - 0.008) < (platformArray[2].x2 + platformArray[2].width/2 - platformArray[1].width/2))) {
             ///next level
             player.walk()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            //sound walk
+            let audio = try! AudioFileResource.load(named: "wheel.mp3", in: nil, inputMode: .spatial, loadingStrategy: .preload, shouldLoop: false)
+            self.player.player.prepareAudio(audio).play()
+            
+            //scene
+            if (score == 4) {
+                removePreviousEnvironment()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.createAntarctica()
+                    self.ariseEnvironment()
+                    self.texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "ice"))
+                    self.environmentLabel.text = "You reached Antarctica!"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.environmentLabel.text = ""
+                    }
+                }
+            } else if (score == 9) {
+                removePreviousEnvironment()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.createSpace()
+                    self.ariseEnvironment()
+                    self.texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "moonpowder"))
+                    self.environmentLabel.text = "You reached Space!"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.environmentLabel.text = ""
+                    }
+                }
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 self.bridge.shorten()
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     ///delete previous and add new platform + bridge
                     self.gameAnchor.removeChild(self.platformArray[0].platform)
                     self.platformArray.remove(at: 0)
@@ -154,21 +190,19 @@ class ViewController: UIViewController {
                     self.platformArray[1].slide()
                     self.platformArray[2].arise()
                     self.player.slide()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.gameAnchor.removeChild(self.player.player)
                         self.addPlayer()
+                        self.addBridge()
+                        
+                        ///game buttons
+                        self.startButton.isHidden = false
+                        self.startButton.isEnabled = true
                     }
-                    
-                    ///game buttons
-                    self.startButton.isHidden = false
                     
                     ///score
                     self.score = self.score + 1
                     self.scoreLabel.text = String(self.score)
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        self.addBridge()
-                    }
                 }
             }
         } else {
@@ -197,9 +231,6 @@ class ViewController: UIViewController {
     }
     
     func addBridge() {
-        var texture = SimpleMaterial()
-        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "metaal"))
-        
         bridge = Bridge(width: 0.001, heigth: 0.0001, depth: 0.05, xPos: platformArray[1].width/2, yPos: 0.1, xSink: -0.151 + platformArray[0].width/2, material: texture)
         bridge.add()
         gameAnchor.addChild(bridge.bridge)
@@ -207,9 +238,6 @@ class ViewController: UIViewController {
     }
     
     func addStartPlatform() {
-        var texture = SimpleMaterial()
-        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "metaal"))
-            
         startPlatform = Platform(width: 0.05, heigth: 0.1, depth: 0.05, xPos1: 0, yPos1: 0.05, xPos2: 0, yPos2: 0.05, material: texture)
         startPlatform.add()
         gameAnchor.addChild(startPlatform.platform)
@@ -218,12 +246,19 @@ class ViewController: UIViewController {
     
     func addNewPlatform() {
         ///generate a random width and distance for new platform
-        randomDistance = Double.random(in: 0.07...0.25)
-        randomWidth = Double.random(in: 0.01...0.05)
-        
-        ///make a new platform
-        var texture = SimpleMaterial()
-        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "metaal"))
+        if (score < 5) {
+            randomDistance = Double.random(in: 0.07...0.15)
+            randomWidth = Double.random(in: 0.03...0.05)
+        } else if (score < 10) {
+            randomDistance = Double.random(in: 0.07...0.20)
+            randomWidth = Double.random(in: 0.03...0.05)
+        } else if (score < 15) {
+            randomDistance = Double.random(in: 0.07...0.25)
+            randomWidth = Double.random(in: 0.02...0.05)
+        } else {
+            randomDistance = Double.random(in: 0.13...0.25)
+            randomWidth = Double.random(in: 0.01...0.05)
+        }
         
         newPlatform = Platform(width: randomWidth, heigth: 0.1, depth: 0.05, xPos1: 0.4, yPos1: -0.1, xPos2: randomDistance, yPos2: 0.05, material: texture)
         newPlatform.add()
@@ -234,7 +269,7 @@ class ViewController: UIViewController {
     
     func addPlayer() {
         ///make a player
-        player = Player(width: 0.02, heigth: 0.02, depth: 0.02, xPos: 0, yPos: 0.1, material: SimpleMaterial(color: .white, isMetallic: true), moveDistance: randomDistance)
+        player = Player(xPos: 0, yPos: 0.1, material: SimpleMaterial(color: .white, isMetallic: true), moveDistance: randomDistance)
         player.add()
         gameAnchor.addChild(player.player)
     }
@@ -244,7 +279,7 @@ class ViewController: UIViewController {
         let planeMesh = MeshResource.generatePlane(width: 5, depth: 5)
         let materialForOcclusion = OcclusionMaterial()
         let occlusionPlane = ModelEntity(mesh: planeMesh, materials: [materialForOcclusion])
-        occlusionPlane.position.y = -0.001
+        occlusionPlane.position.y = -0.005
         
         gameAnchor.addChild(occlusionPlane)
     }
@@ -253,19 +288,12 @@ class ViewController: UIViewController {
         ///hide game over view
         gameOverView.isHidden = true
         gameView.isHidden = false
+        startButton.isEnabled = true
         
-        ///remove objects from previous game
-        for element in platformArray {
-            gameAnchor.removeChild(element.platform)
+        removePreviousScene()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.createStartScene()
         }
-        platformArray.removeAll()
-        for element in bridgeArray {
-            gameAnchor.removeChild(element.bridge)
-        }
-        bridgeArray.removeAll()
-        gameAnchor.removeChild(player.player)
-        
-        createStartScene()
     }
     
     func addNullPlatform() {
@@ -278,20 +306,41 @@ class ViewController: UIViewController {
         bridgeArray.append(nullBridge)
     }
     
-    func addEnvironment() {
-        //cloud
-        placeObject(named: "cloud", x: -0.05, y: 0.15, z: -0.15, scale: SIMD3(x: 0.1, y: 0.1, z: 0.1))
-        placeObject(named: "cloud", x: 0.07, y: 0.12, z: 0.12, scale: SIMD3(x: 0.1, y: 0.1, z: 0.1))
-        placeObject(named: "cloud", x: 0.2, y: 0.17, z: -0.1, scale: SIMD3(x: 0.15, y: 0.15, z: 0.15))
-        //drone
-        placeObject(named: "drone", x: 0.04, y: 0.15, z: -0.03, scale: SIMD3(x: 0.4, y: 0.4, z: 0.4))
-        //cactus
-        placeObject(named: "cactus", x: 0.1, y: 0, z: 0.04, scale: SIMD3(x: 0.5, y: 0.5, z: 0.5))
-        placeObject(named: "cactus", x: -0.03, y: 0, z: 0.07, scale: SIMD3(x: 0.5, y: 0.5, z: 0.5))
-        placeObject(named: "cactus", x: 0.04, y: 0, z: -0.04, scale: SIMD3(x: 0.5, y: 0.5, z: 0.5))
-        //tree
-        placeObject(named: "tree", x: 0.15, y: 0, z: -0.1, scale: SIMD3(x: 0.3, y: 0.3, z: 0.3))
-        placeObject(named: "deadtree", x: -0.04, y: 0, z: 0.06, scale: SIMD3(x: 0.2, y: 0.2, z: 0.2))
+    func removePreviousScene() {
+        ///remove objects from previous game
+        for element in platformArray {
+            gameAnchor.removeChild(element.platform)
+        }
+        platformArray.removeAll()
+        for element in bridgeArray {
+            gameAnchor.removeChild(element.bridge)
+        }
+        bridgeArray.removeAll()
+        gameAnchor.removeChild(player.player)
+    }
+    
+    func removePreviousEnvironment() {
+        for element in environmentArray {
+            //sink
+            var translationTransform = element.transform
+            translationTransform.translation = SIMD3<Float>(x: element.position.x, y: element.position.y - 0.3, z: element.position.z)
+            element.move(to: translationTransform, relativeTo: element.parent, duration: 1, timingFunction: .easeInOut)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.gameAnchor.removeChild(element)
+                print(self.environmentArray.count)
+            }
+            self.environmentArray.removeAll()
+        }
+    }
+    
+    func ariseEnvironment() {
+        for element in environmentArray {
+            //arise
+            var translationTransform = element.transform
+            translationTransform.translation = SIMD3<Float>(x: element.position.x, y: element.position.y + 0.3, z: element.position.z)
+            element.move(to: translationTransform, relativeTo: element.parent, duration: 1, timingFunction: .easeInOut)
+        }
     }
     
     func createStartScene() {
@@ -309,7 +358,6 @@ class ViewController: UIViewController {
         addBridge()
         addNewPlatform()
         addPlayer()
-        addEnvironment()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             ///game action buttons
@@ -318,19 +366,95 @@ class ViewController: UIViewController {
         }
     }
     
-    func placeObject(named entityName: String, x: Double, y: Double, z: Double, scale: SIMD3<Float>) {
-        let entity = try! ModelEntity.loadModel(named: entityName)
-        entity.position.x = Float(x)
-        entity.position.y = Float(y)
-        entity.position.z = Float(z)
-        entity.scale = scale
-        gameAnchor.addChild(entity)
-    }
-    
     @IBAction func goToMenu(_ sender: UIButton) {
         gameOverView.isHidden = true
         menuView.isHidden = false
         startGameButton.isHidden = false
     }
     
+    func createAntarctica() {
+        addClouds()
+        //iglos
+        load3DModelAsync(named: "igloo", position: SIMD3(x: 0.22, y: -0.001, z: 0.08), scale: SIMD3(x: 2, y: 2, z: 2), rotation: simd_quatf(angle: GLKMathDegreesToRadians(-45), axis: [0, 1, 0]))
+        load3DModelAsync(named: "igloo", position: SIMD3(x: 0.02, y: -0.001, z: -0.13), scale: SIMD3(x: 2, y: 2, z: 2), rotation: simd_quatf(angle: GLKMathDegreesToRadians(30), axis: [0, 1, 0]))
+        //penguins
+        load3DModelAsync(named: "penguin", position: SIMD3(x: 0.02, y: 0, z: 0.08), scale: SIMD3(x: 0.2, y: 0.2, z: 0.2), rotation: simd_quatf(angle: GLKMathDegreesToRadians(30), axis: [0, 1, 0]))
+        load3DModelAsync(named: "penguin", position: SIMD3(x: 0.17, y: 0, z: 0.1), scale: SIMD3(x: 0.2, y: 0.2, z: 0.2), rotation: simd_quatf(angle: GLKMathDegreesToRadians(-45), axis: [0, 1, 0]))
+        load3DModelAsync(named: "penguin", position: SIMD3(x: 0.2, y: 0, z: -0.1), scale: SIMD3(x: 0.2, y: 0.2, z: 0.2), rotation: simd_quatf(angle: GLKMathDegreesToRadians(-20), axis: [0, 1, 0]))
+        load3DModelAsync(named: "penguin", position: SIMD3(x: 0.21, y: 0, z: -0.1), scale: SIMD3(x: 0.15, y: 0.15, z: 0.15), rotation: simd_quatf(angle: GLKMathDegreesToRadians(-30), axis: [0, 1, 0]))
+        //icebergs
+        load3DModelAsync(named: "iceberg", position: SIMD3(x: -0.04, y: 0, z: 0.12), scale: SIMD3(x: 0.3, y: 0.3, z: 0.3), rotation: simd_quatf(angle: GLKMathDegreesToRadians(90), axis: [0, 1, 0]))
+        load3DModelAsync(named: "iceberg", position: SIMD3(x: 0.08, y: 0, z: 0.08), scale: SIMD3(x: 0.3, y: 0.3, z: 0.3), rotation: simd_quatf(angle: GLKMathDegreesToRadians(90), axis: [0, 1, 0]))
+        load3DModelAsync(named: "iceberg", position: SIMD3(x: 0.1, y: 0, z: 0.13), scale: SIMD3(x: 0.5, y: 0.5, z: 0.5), rotation: simd_quatf(angle: GLKMathDegreesToRadians(90), axis: [0, 1, 0]))
+        load3DModelAsync(named: "iceberg", position: SIMD3(x: 0.1, y: 0, z: -0.12), scale: SIMD3(x: 0.3, y: 0.3, z: 0.3), rotation: simd_quatf(angle: GLKMathDegreesToRadians(90), axis: [0, 1, 0]))
+        load3DModelAsync(named: "iceberg", position: SIMD3(x: 0.17, y: 0, z: -0.13), scale: SIMD3(x: 0.3, y: 0.3, z: 0.3), rotation: simd_quatf(angle: GLKMathDegreesToRadians(90), axis: [0, 1, 0]))
+    }
+    
+    func createSpace() {
+        //asteroids
+        load3DModelAsync(named: "asteroids", position: SIMD3(x: -0.03, y: 0.15, z: 0.03), scale: SIMD3(x: 2, y: 2, z: 2), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        load3DModelAsync(named: "asteroids", position: SIMD3(x: 0.07, y: 0.12, z: -0.07), scale: SIMD3(x: 2, y: 2, z: 2), rotation: simd_quatf(angle: GLKMathDegreesToRadians(60), axis: [0, 1, 0]))
+        load3DModelAsync(named: "asteroids", position: SIMD3(x: 0.21, y: 0.08, z: 0.09), scale: SIMD3(x: 2, y: 2, z: 2), rotation: simd_quatf(angle: GLKMathDegreesToRadians(140), axis: [0, 1, 0]))
+        //rocket
+        load3DModelAsync(named: "rocketship", position: SIMD3(x: 0.18, y: 0, z: 0.1), scale: SIMD3(x: 1, y: 1, z: 1), rotation: simd_quatf(angle: GLKMathDegreesToRadians(90), axis: [0, 1, 0]))
+        //base
+        load3DModelAsync(named: "spacebase", position: SIMD3(x: 0.12, y: 0, z: -0.12), scale: SIMD3(x: 2, y: 2, z: 2), rotation: simd_quatf(angle: GLKMathDegreesToRadians(-90), axis: [0, 1, 0]))
+        //ufo
+        load3DModelAsync(named: "ufo", position: SIMD3(x: -0.04, y: 0, z: 0.13), scale: SIMD3(x: 0.3, y: 0.3, z: 0.3), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        //satellites
+        load3DModelAsync(named: "satellite1", position: SIMD3(x: 0.12, y: 0.17, z: -0.1), scale: SIMD3(x: 0.3, y: 0.3, z: 0.3), rotation: simd_quatf(angle: GLKMathDegreesToRadians(-90), axis: [0, 1, 0]))
+        load3DModelAsync(named: "satellite2", position: SIMD3(x: 0.02, y: 0.2, z: 0.12), scale: SIMD3(x: 0.5, y: 0.5, z: 0.5), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+    }
+    
+    func createFarm() {
+        addClouds()
+        //oilpump
+        load3DModelAsync(named: "oilpump", position: SIMD3(x: 0.03, y: 0, z: 0.12), scale: SIMD3(x: 0.0002, y: 0.0002, z: 0.0002), rotation: simd_quatf(angle: GLKMathDegreesToRadians(150), axis: [0, 1, 0]))
+        //silos
+        load3DModelAsync(named: "silo", position: SIMD3(x: -0.07, y: 0, z: -0.1), scale: SIMD3(x: 0.6, y: 0.6, z: 0.6), rotation: simd_quatf(angle: GLKMathDegreesToRadians(-60), axis: [0, 1, 0]))
+        load3DModelAsync(named: "silo", position: SIMD3(x: -0.12, y: 0, z: -0.07), scale: SIMD3(x: 0.6, y: 0.6, z: 0.6), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        //tractor
+        load3DModelAsync(named: "tractor", position: SIMD3(x: 0.04, y: 0, z: 0.1), scale: SIMD3(x: 0.3, y: 0.3, z: 0.3), rotation: simd_quatf(angle: GLKMathDegreesToRadians(120), axis: [0, 1, 0]))
+        //treestump
+        load3DModelAsync(named: "treestump", position: SIMD3(x: 0.11, y: 0, z: 0.08), scale: SIMD3(x: 0.5, y: 0.5, z: 0.5), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        //windturbine
+        load3DModelAsync(named: "windturbine", position: SIMD3(x: 0.06, y: 0, z: -0.12), scale: SIMD3(x: 0.4, y: 0.4, z: 0.4), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        //stone
+        load3DModelAsync(named: "stone", position: SIMD3(x: 0.14, y: 0, z: -0.09), scale: SIMD3(x: 0.5, y: 0.5, z: 0.5), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        load3DModelAsync(named: "stone", position: SIMD3(x: 0.06, y: 0, z: -0.11), scale: SIMD3(x: 0.5, y: 0.5, z: 0.5), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        load3DModelAsync(named: "stone", position: SIMD3(x: 0.2, y: 0, z: 0.14), scale: SIMD3(x: 0.5, y: 0.5, z: 0.5), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        //tree
+        load3DModelAsync(named: "greentree", position: SIMD3(x: 0.01, y: 0, z: 0.07), scale: SIMD3(x: 0.12, y: 0.12, z: 0.12), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        load3DModelAsync(named: "greentree", position: SIMD3(x: -0.1, y: 0, z: -0.04), scale: SIMD3(x: 0.1, y: 0.1, z: 0.1), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+    }
+    
+    func addClouds() {
+        load3DModelAsync(named: "cloud", position: SIMD3(x: -0.05, y: 0.15, z: -0.15), scale: SIMD3(x: 0.1, y: 0.1, z: 0.1), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        load3DModelAsync(named: "cloud", position: SIMD3(x: 0.07, y: 0.12, z: 0.12), scale: SIMD3(x: 0.1, y: 0.1, z: 0.1), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+        load3DModelAsync(named: "cloud", position: SIMD3(x: 0.2, y: 0.17, z: -0.1), scale: SIMD3(x: 0.15, y: 0.15, z: 0.15), rotation: simd_quatf(angle: GLKMathDegreesToRadians(0), axis: [0, 1, 0]))
+    }
+    
+//    func load3DModel(named entityName: String, position: SIMD3<Float>, scale: SIMD3<Float>) {
+//        let entity = try! ModelEntity.loadModel(named: entityName)
+//        entity.position = position
+//        entity.scale = scale
+//        gameAnchor.addChild(entity)
+//    }
+    
+    func load3DModelAsync(named entityName: String, position: SIMD3<Float>, scale: SIMD3<Float>, rotation: simd_quatf) {
+        var cancellable: AnyCancellable? = nil
+        cancellable = ModelEntity.loadModelAsync(named: entityName)
+            .sink(receiveCompletion: { error in
+                print("--- unexpected error: \(error) ---")
+                cancellable?.cancel()
+            }, receiveValue: { (entity) in
+                entity.position = position
+                entity.scale = scale
+                entity.transform.rotation = rotation
+                self.gameAnchor.addChild(entity)
+                self.environmentArray.append(entity)
+                cancellable?.cancel()
+                print("--- loaded \(entityName) and added to the scene")
+            })
+    }
 }

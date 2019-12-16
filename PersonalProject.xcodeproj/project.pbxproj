@@ -11,18 +11,65 @@
 		594879EB23A529D4009874DC /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594879EA23A529D4009874DC /* Platform.swift */; };
 		594879ED23A52A1A009874DC /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594879EC23A52A1A009874DC /* Bridge.swift */; };
 		594879EF23A52A30009874DC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594879EE23A52A30009874DC /* Player.swift */; };
-		594879F223A68F1B009874DC /* cloud.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 594879F123A68F1B009874DC /* cloud.usdz */; };
 		594879F523A6B841009874DC /* algemeen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 594879F423A6B841009874DC /* algemeen.mp3 */; };
 		594879F723A6BA5E009874DC /* bridge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 594879F623A6BA5E009874DC /* bridge.mp3 */; };
 		594879FD23A6ED00009874DC /* crash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 594879FC23A6ED00009874DC /* crash.mp3 */; };
-		594879FF23A6F14B009874DC /* cactus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 594879FE23A6F14B009874DC /* cactus.usdz */; };
 		59487A0123A6F239009874DC /* tree.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0023A6F239009874DC /* tree.usdz */; };
-		59487A0323A6F436009874DC /* drone.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0223A6F436009874DC /* drone.usdz */; };
-		59487A0523A701FF009874DC /* player.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0423A701FF009874DC /* player.usdz */; };
 		59487A0723A704AD009874DC /* deadtree.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0623A704AD009874DC /* deadtree.usdz */; };
+		59487A0B23A71302009874DC /* wheel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0A23A71302009874DC /* wheel.mp3 */; };
+		59487A1623A73BC7009874DC /* lolly.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0F23A73BC7009874DC /* lolly.usdz */; };
+		59487A1723A73BC7009874DC /* heart.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A1023A73BC7009874DC /* heart.usdz */; };
+		59487A1823A73BC7009874DC /* candy.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A1123A73BC7009874DC /* candy.usdz */; };
+		59487A1923A73BC7009874DC /* candycane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A1223A73BC7009874DC /* candycane.usdz */; };
+		59487A1A23A73BC7009874DC /* unicorn.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A1323A73BC7009874DC /* unicorn.usdz */; };
+		59487A1B23A73BC7009874DC /* gummybear.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A1423A73BC7009874DC /* gummybear.usdz */; };
+		59487A1C23A73BC7009874DC /* rainbow.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A1523A73BC7009874DC /* rainbow.usdz */; };
+		59487A2523A73BE3009874DC /* trex.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A1F23A73BE3009874DC /* trex.usdz */; };
+		59487A2623A73BE3009874DC /* platvoet.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A2023A73BE3009874DC /* platvoet.usdz */; };
+		59487A2723A73BE3009874DC /* volcano.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A2123A73BE3009874DC /* volcano.usdz */; };
+		59487A2823A73BE3009874DC /* raccoon.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A2223A73BE3009874DC /* raccoon.usdz */; };
+		59487A2923A73BE3009874DC /* spidermonkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A2323A73BE3009874DC /* spidermonkey.usdz */; };
+		59487A3323A73BFB009874DC /* boots.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A2C23A73BFB009874DC /* boots.usdz */; };
+		59487A3523A73BFB009874DC /* saloon.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A2E23A73BFB009874DC /* saloon.usdz */; };
+		59487A3723A73BFB009874DC /* stone.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A3023A73BFB009874DC /* stone.usdz */; };
+		59487A4123A73C0D009874DC /* bird.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A3A23A73C0C009874DC /* bird.usdz */; };
+		59487A4223A73C0D009874DC /* duck.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A3B23A73C0C009874DC /* duck.usdz */; };
+		59487A4323A73C0D009874DC /* cattail.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A3C23A73C0C009874DC /* cattail.usdz */; };
+		59487A4523A73C0D009874DC /* boat.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A3E23A73C0C009874DC /* boat.usdz */; };
+		59487A4623A73C0D009874DC /* kayak.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A3F23A73C0C009874DC /* kayak.usdz */; };
+		59487A4723A73C0D009874DC /* coast.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A4023A73C0D009874DC /* coast.usdz */; };
+		59487A5123A73C34009874DC /* cactus3.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A4923A73C34009874DC /* cactus3.usdz */; };
+		59487A5223A73C34009874DC /* cactus1.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A4A23A73C34009874DC /* cactus1.usdz */; };
+		59487A5423A73C34009874DC /* palmtree.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A4C23A73C34009874DC /* palmtree.usdz */; };
+		59487A5623A73C34009874DC /* camel.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A4E23A73C34009874DC /* camel.usdz */; };
+		59487A5723A73C34009874DC /* pyramid.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A4F23A73C34009874DC /* pyramid.usdz */; };
+		59487A5823A73C34009874DC /* cactus2.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A5023A73C34009874DC /* cactus2.usdz */; };
+		59487A5F23A73C48009874DC /* panda.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A5A23A73C48009874DC /* panda.usdz */; };
+		59487A6023A73C48009874DC /* grass.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A5B23A73C48009874DC /* grass.usdz */; };
+		59487A6223A73C48009874DC /* greentree.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A5D23A73C48009874DC /* greentree.usdz */; };
+		59487A6323A73C48009874DC /* chinahouse.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A5E23A73C48009874DC /* chinahouse.usdz */; };
+		59487A6C23A73C60009874DC /* telephonepole.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A6623A73C60009874DC /* telephonepole.usdz */; };
+		59487A6D23A73C60009874DC /* radiotower.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A6723A73C60009874DC /* radiotower.usdz */; };
+		59487A6E23A73C60009874DC /* telephonepole2.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A6823A73C60009874DC /* telephonepole2.usdz */; };
+		59487A7023A73C60009874DC /* radiotower2.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A6A23A73C60009874DC /* radiotower2.usdz */; };
+		59487A7923A73C70009874DC /* silo.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A7223A73C6F009874DC /* silo.usdz */; };
+		59487A7B23A73C70009874DC /* treestump.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A7423A73C70009874DC /* treestump.usdz */; };
+		59487A7D23A73C70009874DC /* windturbine.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A7623A73C70009874DC /* windturbine.usdz */; };
+		59487A7E23A73C70009874DC /* oilpump.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A7723A73C70009874DC /* oilpump.usdz */; };
+		59487A7F23A73C70009874DC /* tractor.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A7823A73C70009874DC /* tractor.usdz */; };
+		59487A8823A73C82009874DC /* satellite2.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A8123A73C82009874DC /* satellite2.usdz */; };
+		59487A8923A73C82009874DC /* satellite1.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A8223A73C82009874DC /* satellite1.usdz */; };
+		59487A8A23A73C82009874DC /* spacebase.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A8323A73C82009874DC /* spacebase.usdz */; };
+		59487A8B23A73C82009874DC /* ufo.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A8423A73C82009874DC /* ufo.usdz */; };
+		59487A8D23A73C82009874DC /* rocketship.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A8623A73C82009874DC /* rocketship.usdz */; };
+		59487A8E23A73C82009874DC /* asteroids.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A8723A73C82009874DC /* asteroids.usdz */; };
+		59487A9523A73C9F009874DC /* penguin.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A9223A73C9F009874DC /* penguin.usdz */; };
+		59487A9B23A800EE009874DC /* igloo.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A9A23A800EE009874DC /* igloo.usdz */; };
+		59487A9D23A801E5009874DC /* iceberg.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A9C23A801E5009874DC /* iceberg.usdz */; };
+		59487A9F23A802C5009874DC /* cloud.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A9E23A802C5009874DC /* cloud.usdz */; };
+		59487AA523A823FC009874DC /* player.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487AA423A823FC009874DC /* player.usdz */; };
 		59B100EC2379D6F50009004A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B100EB2379D6F50009004A /* AppDelegate.swift */; };
 		59B100EE2379D6F50009004A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B100ED2379D6F50009004A /* ViewController.swift */; };
-		59B100F02379D6F50009004A /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 59B100EF2379D6F50009004A /* Experience.rcproject */; };
 		59B100F32379D6F50009004A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59B100F12379D6F50009004A /* Main.storyboard */; };
 		59B100F52379D6F80009004A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59B100F42379D6F80009004A /* Assets.xcassets */; };
 		59BCA2F8239D684A0001CE2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59BCA2F7239D684A0001CE2A /* LaunchScreen.storyboard */; };
@@ -33,19 +80,66 @@
 		594879EA23A529D4009874DC /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		594879EC23A52A1A009874DC /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
 		594879EE23A52A30009874DC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		594879F123A68F1B009874DC /* cloud.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cloud.usdz; sourceTree = "<group>"; };
 		594879F423A6B841009874DC /* algemeen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = algemeen.mp3; sourceTree = "<group>"; };
 		594879F623A6BA5E009874DC /* bridge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bridge.mp3; sourceTree = "<group>"; };
 		594879FC23A6ED00009874DC /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crash.mp3; sourceTree = "<group>"; };
-		594879FE23A6F14B009874DC /* cactus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cactus.usdz; sourceTree = "<group>"; };
 		59487A0023A6F239009874DC /* tree.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tree.usdz; sourceTree = "<group>"; };
-		59487A0223A6F436009874DC /* drone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = drone.usdz; sourceTree = "<group>"; };
-		59487A0423A701FF009874DC /* player.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = player.usdz; sourceTree = "<group>"; };
 		59487A0623A704AD009874DC /* deadtree.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = deadtree.usdz; sourceTree = "<group>"; };
+		59487A0A23A71302009874DC /* wheel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wheel.mp3; sourceTree = "<group>"; };
+		59487A0F23A73BC7009874DC /* lolly.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = lolly.usdz; sourceTree = "<group>"; };
+		59487A1023A73BC7009874DC /* heart.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = heart.usdz; sourceTree = "<group>"; };
+		59487A1123A73BC7009874DC /* candy.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = candy.usdz; sourceTree = "<group>"; };
+		59487A1223A73BC7009874DC /* candycane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = candycane.usdz; sourceTree = "<group>"; };
+		59487A1323A73BC7009874DC /* unicorn.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = unicorn.usdz; sourceTree = "<group>"; };
+		59487A1423A73BC7009874DC /* gummybear.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = gummybear.usdz; sourceTree = "<group>"; };
+		59487A1523A73BC7009874DC /* rainbow.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = rainbow.usdz; sourceTree = "<group>"; };
+		59487A1F23A73BE3009874DC /* trex.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = trex.usdz; sourceTree = "<group>"; };
+		59487A2023A73BE3009874DC /* platvoet.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = platvoet.usdz; sourceTree = "<group>"; };
+		59487A2123A73BE3009874DC /* volcano.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = volcano.usdz; sourceTree = "<group>"; };
+		59487A2223A73BE3009874DC /* raccoon.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = raccoon.usdz; sourceTree = "<group>"; };
+		59487A2323A73BE3009874DC /* spidermonkey.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = spidermonkey.usdz; sourceTree = "<group>"; };
+		59487A2C23A73BFB009874DC /* boots.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = boots.usdz; sourceTree = "<group>"; };
+		59487A2E23A73BFB009874DC /* saloon.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = saloon.usdz; sourceTree = "<group>"; };
+		59487A3023A73BFB009874DC /* stone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = stone.usdz; path = "../../../../../../Users/robbeverhoest/Desktop/development/Personal Passion Project/3D Models/Wild West/stone.usdz"; sourceTree = "<group>"; };
+		59487A3A23A73C0C009874DC /* bird.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = bird.usdz; sourceTree = "<group>"; };
+		59487A3B23A73C0C009874DC /* duck.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = duck.usdz; sourceTree = "<group>"; };
+		59487A3C23A73C0C009874DC /* cattail.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cattail.usdz; sourceTree = "<group>"; };
+		59487A3E23A73C0C009874DC /* boat.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = boat.usdz; sourceTree = "<group>"; };
+		59487A3F23A73C0C009874DC /* kayak.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = kayak.usdz; sourceTree = "<group>"; };
+		59487A4023A73C0D009874DC /* coast.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = coast.usdz; sourceTree = "<group>"; };
+		59487A4923A73C34009874DC /* cactus3.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = cactus3.usdz; path = "../../../../../../Users/robbeverhoest/Desktop/development/Personal Passion Project/3D Models/Desert/cactus3.usdz"; sourceTree = "<group>"; };
+		59487A4A23A73C34009874DC /* cactus1.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = cactus1.usdz; path = "../../../../../../Users/robbeverhoest/Desktop/development/Personal Passion Project/3D Models/Desert/cactus1.usdz"; sourceTree = "<group>"; };
+		59487A4C23A73C34009874DC /* palmtree.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = palmtree.usdz; sourceTree = "<group>"; };
+		59487A4E23A73C34009874DC /* camel.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = camel.usdz; sourceTree = "<group>"; };
+		59487A4F23A73C34009874DC /* pyramid.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = pyramid.usdz; sourceTree = "<group>"; };
+		59487A5023A73C34009874DC /* cactus2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = cactus2.usdz; path = "../../../../../../Users/robbeverhoest/Desktop/development/Personal Passion Project/3D Models/Desert/cactus2.usdz"; sourceTree = "<group>"; };
+		59487A5A23A73C48009874DC /* panda.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = panda.usdz; sourceTree = "<group>"; };
+		59487A5B23A73C48009874DC /* grass.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = grass.usdz; sourceTree = "<group>"; };
+		59487A5D23A73C48009874DC /* greentree.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = greentree.usdz; sourceTree = "<group>"; };
+		59487A5E23A73C48009874DC /* chinahouse.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = chinahouse.usdz; sourceTree = "<group>"; };
+		59487A6623A73C60009874DC /* telephonepole.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = telephonepole.usdz; sourceTree = "<group>"; };
+		59487A6723A73C60009874DC /* radiotower.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = radiotower.usdz; sourceTree = "<group>"; };
+		59487A6823A73C60009874DC /* telephonepole2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = telephonepole2.usdz; sourceTree = "<group>"; };
+		59487A6A23A73C60009874DC /* radiotower2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = radiotower2.usdz; sourceTree = "<group>"; };
+		59487A7223A73C6F009874DC /* silo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = silo.usdz; sourceTree = "<group>"; };
+		59487A7423A73C70009874DC /* treestump.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = treestump.usdz; sourceTree = "<group>"; };
+		59487A7623A73C70009874DC /* windturbine.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = windturbine.usdz; sourceTree = "<group>"; };
+		59487A7723A73C70009874DC /* oilpump.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = oilpump.usdz; sourceTree = "<group>"; };
+		59487A7823A73C70009874DC /* tractor.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tractor.usdz; sourceTree = "<group>"; };
+		59487A8123A73C82009874DC /* satellite2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = satellite2.usdz; sourceTree = "<group>"; };
+		59487A8223A73C82009874DC /* satellite1.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = satellite1.usdz; sourceTree = "<group>"; };
+		59487A8323A73C82009874DC /* spacebase.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = spacebase.usdz; sourceTree = "<group>"; };
+		59487A8423A73C82009874DC /* ufo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = ufo.usdz; sourceTree = "<group>"; };
+		59487A8623A73C82009874DC /* rocketship.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = rocketship.usdz; sourceTree = "<group>"; };
+		59487A8723A73C82009874DC /* asteroids.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = asteroids.usdz; sourceTree = "<group>"; };
+		59487A9223A73C9F009874DC /* penguin.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = penguin.usdz; sourceTree = "<group>"; };
+		59487A9A23A800EE009874DC /* igloo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = igloo.usdz; sourceTree = "<group>"; };
+		59487A9C23A801E5009874DC /* iceberg.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = iceberg.usdz; sourceTree = "<group>"; };
+		59487A9E23A802C5009874DC /* cloud.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cloud.usdz; sourceTree = "<group>"; };
+		59487AA423A823FC009874DC /* player.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = player.usdz; sourceTree = "<group>"; };
 		59B100E82379D6F50009004A /* PersonalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B100EB2379D6F50009004A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59B100ED2379D6F50009004A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		59B100EF2379D6F50009004A /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
 		59B100F22379D6F50009004A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59B100F42379D6F80009004A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59B100F92379D6F80009004A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,12 +160,11 @@
 		590BA5A923A3FF8D004F1077 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				594879F023A68EF8009874DC /* usdz files */,
-				594879F323A6B836009874DC /* audio */,
 				59B100F12379D6F50009004A /* Main.storyboard */,
 				59BCA2F7239D684A0001CE2A /* LaunchScreen.storyboard */,
-				59B100EF2379D6F50009004A /* Experience.rcproject */,
 				59B100F42379D6F80009004A /* Assets.xcassets */,
+				594879F023A68EF8009874DC /* 3D Models */,
+				594879F323A6B836009874DC /* Audio */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -88,42 +181,178 @@
 			children = (
 				59B100ED2379D6F50009004A /* ViewController.swift */,
 				593CE220239DB42000DD7CB1 /* ViewController+CoachingOverlay.swift */,
-				594879F923A6CE7D009874DC /* objects */,
+				594879F923A6CE7D009874DC /* Objects */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		594879F023A68EF8009874DC /* usdz files */ = {
+		594879F023A68EF8009874DC /* 3D Models */ = {
 			isa = PBXGroup;
 			children = (
-				59487A0223A6F436009874DC /* drone.usdz */,
-				59487A0023A6F239009874DC /* tree.usdz */,
-				594879FE23A6F14B009874DC /* cactus.usdz */,
-				594879F123A68F1B009874DC /* cloud.usdz */,
-				59487A0423A701FF009874DC /* player.usdz */,
-				59487A0623A704AD009874DC /* deadtree.usdz */,
+				59487A9723A73CA5009874DC /* Basic */,
+				59487A9023A73C91009874DC /* Antarctica */,
+				59487A8023A73C7A009874DC /* Space */,
+				59487A7123A73C66009874DC /* Farm */,
+				59487A6423A73C4C009874DC /* Factory */,
+				59487A5923A73C3E009874DC /* China */,
+				59487A4823A73C17009874DC /* Desert */,
+				59487A3923A73BFF009874DC /* Harbor */,
+				59487A2A23A73BEC009874DC /* Wild West */,
+				59487A1D23A73BD6009874DC /* Prehistory */,
+				59487A0E23A73BB6009874DC /* Fairy Land */,
 			);
-			name = "usdz files";
+			name = "3D Models";
 			sourceTree = "<group>";
 		};
-		594879F323A6B836009874DC /* audio */ = {
+		594879F323A6B836009874DC /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				59487A0A23A71302009874DC /* wheel.mp3 */,
 				594879FC23A6ED00009874DC /* crash.mp3 */,
 				594879F423A6B841009874DC /* algemeen.mp3 */,
 				594879F623A6BA5E009874DC /* bridge.mp3 */,
 			);
-			name = audio;
+			name = Audio;
 			sourceTree = "<group>";
 		};
-		594879F923A6CE7D009874DC /* objects */ = {
+		594879F923A6CE7D009874DC /* Objects */ = {
 			isa = PBXGroup;
 			children = (
 				594879EA23A529D4009874DC /* Platform.swift */,
 				594879EC23A52A1A009874DC /* Bridge.swift */,
 				594879EE23A52A30009874DC /* Player.swift */,
 			);
-			name = objects;
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		59487A0E23A73BB6009874DC /* Fairy Land */ = {
+			isa = PBXGroup;
+			children = (
+				59487A1123A73BC7009874DC /* candy.usdz */,
+				59487A1223A73BC7009874DC /* candycane.usdz */,
+				59487A1423A73BC7009874DC /* gummybear.usdz */,
+				59487A1023A73BC7009874DC /* heart.usdz */,
+				59487A0F23A73BC7009874DC /* lolly.usdz */,
+				59487A1523A73BC7009874DC /* rainbow.usdz */,
+				59487A1323A73BC7009874DC /* unicorn.usdz */,
+			);
+			name = "Fairy Land";
+			sourceTree = "<group>";
+		};
+		59487A1D23A73BD6009874DC /* Prehistory */ = {
+			isa = PBXGroup;
+			children = (
+				59487A2023A73BE3009874DC /* platvoet.usdz */,
+				59487A2223A73BE3009874DC /* raccoon.usdz */,
+				59487A2323A73BE3009874DC /* spidermonkey.usdz */,
+				59487A1F23A73BE3009874DC /* trex.usdz */,
+				59487A2123A73BE3009874DC /* volcano.usdz */,
+			);
+			name = Prehistory;
+			sourceTree = "<group>";
+		};
+		59487A2A23A73BEC009874DC /* Wild West */ = {
+			isa = PBXGroup;
+			children = (
+				59487A2C23A73BFB009874DC /* boots.usdz */,
+				59487A2E23A73BFB009874DC /* saloon.usdz */,
+				59487A0623A704AD009874DC /* deadtree.usdz */,
+				59487A3023A73BFB009874DC /* stone.usdz */,
+			);
+			name = "Wild West";
+			sourceTree = "<group>";
+		};
+		59487A3923A73BFF009874DC /* Harbor */ = {
+			isa = PBXGroup;
+			children = (
+				59487A3A23A73C0C009874DC /* bird.usdz */,
+				59487A3E23A73C0C009874DC /* boat.usdz */,
+				59487A3C23A73C0C009874DC /* cattail.usdz */,
+				59487A4023A73C0D009874DC /* coast.usdz */,
+				59487A3B23A73C0C009874DC /* duck.usdz */,
+				59487A3F23A73C0C009874DC /* kayak.usdz */,
+			);
+			name = Harbor;
+			sourceTree = "<group>";
+		};
+		59487A4823A73C17009874DC /* Desert */ = {
+			isa = PBXGroup;
+			children = (
+				59487A4A23A73C34009874DC /* cactus1.usdz */,
+				59487A5023A73C34009874DC /* cactus2.usdz */,
+				59487A4923A73C34009874DC /* cactus3.usdz */,
+				59487A4E23A73C34009874DC /* camel.usdz */,
+				59487A4C23A73C34009874DC /* palmtree.usdz */,
+				59487A4F23A73C34009874DC /* pyramid.usdz */,
+			);
+			name = Desert;
+			sourceTree = "<group>";
+		};
+		59487A5923A73C3E009874DC /* China */ = {
+			isa = PBXGroup;
+			children = (
+				59487A5E23A73C48009874DC /* chinahouse.usdz */,
+				59487A5B23A73C48009874DC /* grass.usdz */,
+				59487A5D23A73C48009874DC /* greentree.usdz */,
+				59487A5A23A73C48009874DC /* panda.usdz */,
+			);
+			name = China;
+			sourceTree = "<group>";
+		};
+		59487A6423A73C4C009874DC /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				59487A6723A73C60009874DC /* radiotower.usdz */,
+				59487A6A23A73C60009874DC /* radiotower2.usdz */,
+				59487A6623A73C60009874DC /* telephonepole.usdz */,
+				59487A6823A73C60009874DC /* telephonepole2.usdz */,
+			);
+			name = Factory;
+			sourceTree = "<group>";
+		};
+		59487A7123A73C66009874DC /* Farm */ = {
+			isa = PBXGroup;
+			children = (
+				59487A7723A73C70009874DC /* oilpump.usdz */,
+				59487A7223A73C6F009874DC /* silo.usdz */,
+				59487A7823A73C70009874DC /* tractor.usdz */,
+				59487A7423A73C70009874DC /* treestump.usdz */,
+				59487A7623A73C70009874DC /* windturbine.usdz */,
+			);
+			name = Farm;
+			sourceTree = "<group>";
+		};
+		59487A8023A73C7A009874DC /* Space */ = {
+			isa = PBXGroup;
+			children = (
+				59487A8723A73C82009874DC /* asteroids.usdz */,
+				59487A8623A73C82009874DC /* rocketship.usdz */,
+				59487A8223A73C82009874DC /* satellite1.usdz */,
+				59487A8123A73C82009874DC /* satellite2.usdz */,
+				59487A8323A73C82009874DC /* spacebase.usdz */,
+				59487A8423A73C82009874DC /* ufo.usdz */,
+			);
+			name = Space;
+			sourceTree = "<group>";
+		};
+		59487A9023A73C91009874DC /* Antarctica */ = {
+			isa = PBXGroup;
+			children = (
+				59487A9A23A800EE009874DC /* igloo.usdz */,
+				59487A9C23A801E5009874DC /* iceberg.usdz */,
+				59487A9223A73C9F009874DC /* penguin.usdz */,
+			);
+			name = Antarctica;
+			sourceTree = "<group>";
+		};
+		59487A9723A73CA5009874DC /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				59487A0023A6F239009874DC /* tree.usdz */,
+				59487AA423A823FC009874DC /* player.usdz */,
+				59487A9E23A802C5009874DC /* cloud.usdz */,
+			);
+			name = Basic;
 			sourceTree = "<group>";
 		};
 		59B100DF2379D6F50009004A = {
@@ -212,18 +441,66 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59487A5123A73C34009874DC /* cactus3.usdz in Resources */,
+				59487A8D23A73C82009874DC /* rocketship.usdz in Resources */,
+				59487A6C23A73C60009874DC /* telephonepole.usdz in Resources */,
+				59487A6023A73C48009874DC /* grass.usdz in Resources */,
+				59487A7E23A73C70009874DC /* oilpump.usdz in Resources */,
+				59487A0B23A71302009874DC /* wheel.mp3 in Resources */,
+				59487A1C23A73BC7009874DC /* rainbow.usdz in Resources */,
+				59487A4523A73C0D009874DC /* boat.usdz in Resources */,
+				59487A2523A73BE3009874DC /* trex.usdz in Resources */,
+				59487A7023A73C60009874DC /* radiotower2.usdz in Resources */,
+				59487A1723A73BC7009874DC /* heart.usdz in Resources */,
+				59487A9F23A802C5009874DC /* cloud.usdz in Resources */,
+				59487AA523A823FC009874DC /* player.usdz in Resources */,
+				59487A7D23A73C70009874DC /* windturbine.usdz in Resources */,
+				59487A3523A73BFB009874DC /* saloon.usdz in Resources */,
+				59487A8823A73C82009874DC /* satellite2.usdz in Resources */,
+				59487A7B23A73C70009874DC /* treestump.usdz in Resources */,
+				59487A5F23A73C48009874DC /* panda.usdz in Resources */,
+				59487A4123A73C0D009874DC /* bird.usdz in Resources */,
 				59487A0123A6F239009874DC /* tree.usdz in Resources */,
-				59487A0323A6F436009874DC /* drone.usdz in Resources */,
+				59487A1923A73BC7009874DC /* candycane.usdz in Resources */,
+				59487A2623A73BE3009874DC /* platvoet.usdz in Resources */,
+				59487A8B23A73C82009874DC /* ufo.usdz in Resources */,
 				594879F723A6BA5E009874DC /* bridge.mp3 in Resources */,
+				59487A2923A73BE3009874DC /* spidermonkey.usdz in Resources */,
+				59487A4323A73C0D009874DC /* cattail.usdz in Resources */,
+				59487A8A23A73C82009874DC /* spacebase.usdz in Resources */,
+				59487A9B23A800EE009874DC /* igloo.usdz in Resources */,
+				59487A9523A73C9F009874DC /* penguin.usdz in Resources */,
+				59487A1B23A73BC7009874DC /* gummybear.usdz in Resources */,
+				59487A4223A73C0D009874DC /* duck.usdz in Resources */,
+				59487A7F23A73C70009874DC /* tractor.usdz in Resources */,
+				59487A1A23A73BC7009874DC /* unicorn.usdz in Resources */,
 				59487A0723A704AD009874DC /* deadtree.usdz in Resources */,
 				59BCA2F8239D684A0001CE2A /* LaunchScreen.storyboard in Resources */,
-				594879FF23A6F14B009874DC /* cactus.usdz in Resources */,
-				594879F223A68F1B009874DC /* cloud.usdz in Resources */,
+				59487A6E23A73C60009874DC /* telephonepole2.usdz in Resources */,
+				59487A6323A73C48009874DC /* chinahouse.usdz in Resources */,
+				59487A1623A73BC7009874DC /* lolly.usdz in Resources */,
+				59487A6223A73C48009874DC /* greentree.usdz in Resources */,
+				59487A6D23A73C60009874DC /* radiotower.usdz in Resources */,
+				59487A2823A73BE3009874DC /* raccoon.usdz in Resources */,
+				59487A5623A73C34009874DC /* camel.usdz in Resources */,
+				59487A5823A73C34009874DC /* cactus2.usdz in Resources */,
+				59487A3323A73BFB009874DC /* boots.usdz in Resources */,
 				59B100F52379D6F80009004A /* Assets.xcassets in Resources */,
+				59487A5223A73C34009874DC /* cactus1.usdz in Resources */,
+				59487A4623A73C0D009874DC /* kayak.usdz in Resources */,
+				59487A2723A73BE3009874DC /* volcano.usdz in Resources */,
+				59487A5723A73C34009874DC /* pyramid.usdz in Resources */,
 				594879FD23A6ED00009874DC /* crash.mp3 in Resources */,
-				59487A0523A701FF009874DC /* player.usdz in Resources */,
+				59487A7923A73C70009874DC /* silo.usdz in Resources */,
+				59487A1823A73BC7009874DC /* candy.usdz in Resources */,
+				59487A3723A73BFB009874DC /* stone.usdz in Resources */,
 				594879F523A6B841009874DC /* algemeen.mp3 in Resources */,
 				59B100F32379D6F50009004A /* Main.storyboard in Resources */,
+				59487A8E23A73C82009874DC /* asteroids.usdz in Resources */,
+				59487A4723A73C0D009874DC /* coast.usdz in Resources */,
+				59487A9D23A801E5009874DC /* iceberg.usdz in Resources */,
+				59487A5423A73C34009874DC /* palmtree.usdz in Resources */,
+				59487A8923A73C82009874DC /* satellite1.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +516,6 @@
 				594879ED23A52A1A009874DC /* Bridge.swift in Sources */,
 				59B100EC2379D6F50009004A /* AppDelegate.swift in Sources */,
 				594879EF23A52A30009874DC /* Player.swift in Sources */,
-				59B100F02379D6F50009004A /* Experience.rcproject in Sources */,
 				593CE221239DB42000DD7CB1 /* ViewController+CoachingOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
