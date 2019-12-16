@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		592089D223A82A4300622260 /* drone.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 592089D123A82A4300622260 /* drone.usdz */; };
-		592089D423A82A4A00622260 /* cactus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 592089D323A82A4A00622260 /* cactus.usdz */; };
 		593CE221239DB42000DD7CB1 /* ViewController+CoachingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593CE220239DB42000DD7CB1 /* ViewController+CoachingOverlay.swift */; };
 		594879EB23A529D4009874DC /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594879EA23A529D4009874DC /* Platform.swift */; };
 		594879ED23A52A1A009874DC /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594879EC23A52A1A009874DC /* Bridge.swift */; };
@@ -78,8 +76,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		592089D123A82A4300622260 /* drone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = drone.usdz; sourceTree = "<group>"; };
-		592089D323A82A4A00622260 /* cactus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cactus.usdz; sourceTree = "<group>"; };
 		593CE220239DB42000DD7CB1 /* ViewController+CoachingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CoachingOverlay.swift"; sourceTree = "<group>"; };
 		594879EA23A529D4009874DC /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		594879EC23A52A1A009874DC /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
@@ -353,8 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				59487A0023A6F239009874DC /* tree.usdz */,
-				592089D123A82A4300622260 /* drone.usdz */,
-				592089D323A82A4A00622260 /* cactus.usdz */,
 				59487AA423A823FC009874DC /* player.usdz */,
 				59487A9E23A802C5009874DC /* cloud.usdz */,
 			);
@@ -471,7 +465,6 @@
 				59487A2623A73BE3009874DC /* platvoet.usdz in Resources */,
 				59487A8B23A73C82009874DC /* ufo.usdz in Resources */,
 				594879F723A6BA5E009874DC /* bridge.mp3 in Resources */,
-				592089D423A82A4A00622260 /* cactus.usdz in Resources */,
 				59487A2923A73BE3009874DC /* spidermonkey.usdz in Resources */,
 				59487A4323A73C0D009874DC /* cattail.usdz in Resources */,
 				59487A8A23A73C82009874DC /* spacebase.usdz in Resources */,
@@ -479,7 +472,6 @@
 				59487A9523A73C9F009874DC /* penguin.usdz in Resources */,
 				59487A1B23A73BC7009874DC /* gummybear.usdz in Resources */,
 				59487A4223A73C0D009874DC /* duck.usdz in Resources */,
-				592089D223A82A4300622260 /* drone.usdz in Resources */,
 				59487A7F23A73C70009874DC /* tractor.usdz in Resources */,
 				59487A1A23A73BC7009874DC /* unicorn.usdz in Resources */,
 				59487A0723A704AD009874DC /* deadtree.usdz in Resources */,

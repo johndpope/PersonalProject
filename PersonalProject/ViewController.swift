@@ -88,10 +88,6 @@ class ViewController: UIViewController {
         //sound
         let audio = try! AudioFileResource.load(named: "algemeen.mp3", in: nil, inputMode: .spatial, loadingStrategy: .stream, shouldLoop: true)
         gameAnchor.prepareAudio(audio).play()
-        
-        environmentLabel.text = ""
-        createFarm()
-        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "grass"))
     }
     
     @IBAction func startGame(_ sender: UIButton) {
@@ -350,6 +346,11 @@ class ViewController: UIViewController {
         ///score
         score = 0
         scoreLabel.text = String(score)
+        
+        environmentLabel.text = ""
+        removePreviousEnvironment()
+        createFarm()
+        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "grass"))
         
         createOcclusionFloor()
         addNullPlatform()
