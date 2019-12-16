@@ -19,6 +19,7 @@
 		59487A0123A6F239009874DC /* tree.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0023A6F239009874DC /* tree.usdz */; };
 		59487A0323A6F436009874DC /* drone.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0223A6F436009874DC /* drone.usdz */; };
 		59487A0523A701FF009874DC /* player.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0423A701FF009874DC /* player.usdz */; };
+		59487A0723A704AD009874DC /* deadtree.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0623A704AD009874DC /* deadtree.usdz */; };
 		59B100EC2379D6F50009004A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B100EB2379D6F50009004A /* AppDelegate.swift */; };
 		59B100EE2379D6F50009004A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B100ED2379D6F50009004A /* ViewController.swift */; };
 		59B100F02379D6F50009004A /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 59B100EF2379D6F50009004A /* Experience.rcproject */; };
@@ -40,6 +41,7 @@
 		59487A0023A6F239009874DC /* tree.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tree.usdz; sourceTree = "<group>"; };
 		59487A0223A6F436009874DC /* drone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = drone.usdz; sourceTree = "<group>"; };
 		59487A0423A701FF009874DC /* player.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = player.usdz; sourceTree = "<group>"; };
+		59487A0623A704AD009874DC /* deadtree.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = deadtree.usdz; sourceTree = "<group>"; };
 		59B100E82379D6F50009004A /* PersonalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B100EB2379D6F50009004A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59B100ED2379D6F50009004A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				594879FE23A6F14B009874DC /* cactus.usdz */,
 				594879F123A68F1B009874DC /* cloud.usdz */,
 				59487A0423A701FF009874DC /* player.usdz */,
+				59487A0623A704AD009874DC /* deadtree.usdz */,
 			);
 			name = "usdz files";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				59487A0123A6F239009874DC /* tree.usdz in Resources */,
 				59487A0323A6F436009874DC /* drone.usdz in Resources */,
 				594879F723A6BA5E009874DC /* bridge.mp3 in Resources */,
+				59487A0723A704AD009874DC /* deadtree.usdz in Resources */,
 				59BCA2F8239D684A0001CE2A /* LaunchScreen.storyboard in Resources */,
 				594879FF23A6F14B009874DC /* cactus.usdz in Resources */,
 				594879F223A68F1B009874DC /* cloud.usdz in Resources */,

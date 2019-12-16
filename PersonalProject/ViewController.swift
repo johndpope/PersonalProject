@@ -17,9 +17,12 @@ class ViewController: UIViewController {
     @IBOutlet var arView: ARView!
     @IBOutlet weak var overlayView: ARCoachingOverlayView!
     
+    ///menu view
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var startGameButton: UIButton!
+    
     ///game view
     @IBOutlet weak var gameView: UIView!
-    @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -30,6 +33,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var endScoreView: UIView!
     @IBOutlet weak var playAgainButton: UIButton!
     @IBOutlet weak var highscoreLabel: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
     
     var gameAnchor = AnchorEntity(plane: .horizontal)
     
@@ -59,17 +63,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ///game buttons
-        stopButton.isHidden = true
-        startButton.isHidden = true
+        ///game views
+        menuView.isHidden = false
+        gameView.isHidden = true
+        gameOverView.isHidden = true
+        
         ///score label
-        scoreLabel.isHidden = true
+//        scoreLabel.isHidden = true
         scoreLabel.layer.masksToBounds = true
         scoreLabel.layer.cornerRadius = 5
         ///game over view
         endScoreView.layer.masksToBounds = true
         endScoreView.layer.cornerRadius = 5
-        gameOverView.isHidden = true
+//        gameOverView.isHidden = true
         
         ///timer
         stopButton.isEnabled = false
@@ -192,7 +198,7 @@ class ViewController: UIViewController {
     
     func addBridge() {
         var texture = SimpleMaterial()
-        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "04"))
+        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "metaal"))
         
         bridge = Bridge(width: 0.001, heigth: 0.0001, depth: 0.05, xPos: platformArray[1].width/2, yPos: 0.1, xSink: -0.151 + platformArray[0].width/2, material: texture)
         bridge.add()
@@ -280,12 +286,18 @@ class ViewController: UIViewController {
         //drone
         placeObject(named: "drone", x: 0.04, y: 0.15, z: -0.03, scale: SIMD3(x: 0.4, y: 0.4, z: 0.4))
         //cactus
-        placeObject(named: "cactus", x: 0.1, y: 0, z: 0.08, scale: SIMD3(x: 0.5, y: 0.5, z: 0.5))
+        placeObject(named: "cactus", x: 0.1, y: 0, z: 0.04, scale: SIMD3(x: 0.5, y: 0.5, z: 0.5))
+        placeObject(named: "cactus", x: -0.03, y: 0, z: 0.07, scale: SIMD3(x: 0.5, y: 0.5, z: 0.5))
+        placeObject(named: "cactus", x: 0.04, y: 0, z: -0.04, scale: SIMD3(x: 0.5, y: 0.5, z: 0.5))
         //tree
         placeObject(named: "tree", x: 0.15, y: 0, z: -0.1, scale: SIMD3(x: 0.3, y: 0.3, z: 0.3))
+        placeObject(named: "deadtree", x: -0.04, y: 0, z: 0.06, scale: SIMD3(x: 0.2, y: 0.2, z: 0.2))
     }
     
     func createStartScene() {
+        menuView.isHidden = true
+        gameView.isHidden = false
+        
         ///score
         score = 0
         scoreLabel.text = String(score)
@@ -314,4 +326,11 @@ class ViewController: UIViewController {
         entity.scale = scale
         gameAnchor.addChild(entity)
     }
+    
+    @IBAction func goToMenu(_ sender: UIButton) {
+        gameOverView.isHidden = true
+        menuView.isHidden = false
+        startGameButton.isHidden = false
+    }
+    
 }

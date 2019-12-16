@@ -30,6 +30,7 @@ class Player {
     }
     
     func add() {
+        //free license: https://www.turbosquid.com/FullPreview/Index.cfm/ID/1126759
         player = try! ModelEntity.loadModel(named: "player")
         player.position.x = Float(x)
         player.position.y = Float(y)
