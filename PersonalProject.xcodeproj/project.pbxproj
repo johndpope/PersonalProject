@@ -12,6 +12,13 @@
 		594879ED23A52A1A009874DC /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594879EC23A52A1A009874DC /* Bridge.swift */; };
 		594879EF23A52A30009874DC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594879EE23A52A30009874DC /* Player.swift */; };
 		594879F223A68F1B009874DC /* cloud.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 594879F123A68F1B009874DC /* cloud.usdz */; };
+		594879F523A6B841009874DC /* algemeen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 594879F423A6B841009874DC /* algemeen.mp3 */; };
+		594879F723A6BA5E009874DC /* bridge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 594879F623A6BA5E009874DC /* bridge.mp3 */; };
+		594879FD23A6ED00009874DC /* crash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 594879FC23A6ED00009874DC /* crash.mp3 */; };
+		594879FF23A6F14B009874DC /* cactus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 594879FE23A6F14B009874DC /* cactus.usdz */; };
+		59487A0123A6F239009874DC /* tree.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0023A6F239009874DC /* tree.usdz */; };
+		59487A0323A6F436009874DC /* drone.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0223A6F436009874DC /* drone.usdz */; };
+		59487A0523A701FF009874DC /* player.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 59487A0423A701FF009874DC /* player.usdz */; };
 		59B100EC2379D6F50009004A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B100EB2379D6F50009004A /* AppDelegate.swift */; };
 		59B100EE2379D6F50009004A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B100ED2379D6F50009004A /* ViewController.swift */; };
 		59B100F02379D6F50009004A /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 59B100EF2379D6F50009004A /* Experience.rcproject */; };
@@ -26,6 +33,13 @@
 		594879EC23A52A1A009874DC /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
 		594879EE23A52A30009874DC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		594879F123A68F1B009874DC /* cloud.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cloud.usdz; sourceTree = "<group>"; };
+		594879F423A6B841009874DC /* algemeen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = algemeen.mp3; sourceTree = "<group>"; };
+		594879F623A6BA5E009874DC /* bridge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bridge.mp3; sourceTree = "<group>"; };
+		594879FC23A6ED00009874DC /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crash.mp3; sourceTree = "<group>"; };
+		594879FE23A6F14B009874DC /* cactus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cactus.usdz; sourceTree = "<group>"; };
+		59487A0023A6F239009874DC /* tree.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tree.usdz; sourceTree = "<group>"; };
+		59487A0223A6F436009874DC /* drone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = drone.usdz; sourceTree = "<group>"; };
+		59487A0423A701FF009874DC /* player.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = player.usdz; sourceTree = "<group>"; };
 		59B100E82379D6F50009004A /* PersonalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B100EB2379D6F50009004A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59B100ED2379D6F50009004A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +64,8 @@
 		590BA5A923A3FF8D004F1077 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				594879F023A68EF8009874DC /* usdz files */,
+				594879F323A6B836009874DC /* audio */,
 				59B100F12379D6F50009004A /* Main.storyboard */,
 				59BCA2F7239D684A0001CE2A /* LaunchScreen.storyboard */,
 				59B100EF2379D6F50009004A /* Experience.rcproject */,
@@ -70,9 +86,7 @@
 			children = (
 				59B100ED2379D6F50009004A /* ViewController.swift */,
 				593CE220239DB42000DD7CB1 /* ViewController+CoachingOverlay.swift */,
-				594879EA23A529D4009874DC /* Platform.swift */,
-				594879EC23A52A1A009874DC /* Bridge.swift */,
-				594879EE23A52A30009874DC /* Player.swift */,
+				594879F923A6CE7D009874DC /* objects */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -80,9 +94,33 @@
 		594879F023A68EF8009874DC /* usdz files */ = {
 			isa = PBXGroup;
 			children = (
+				59487A0223A6F436009874DC /* drone.usdz */,
+				59487A0023A6F239009874DC /* tree.usdz */,
+				594879FE23A6F14B009874DC /* cactus.usdz */,
 				594879F123A68F1B009874DC /* cloud.usdz */,
+				59487A0423A701FF009874DC /* player.usdz */,
 			);
 			name = "usdz files";
+			sourceTree = "<group>";
+		};
+		594879F323A6B836009874DC /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				594879FC23A6ED00009874DC /* crash.mp3 */,
+				594879F423A6B841009874DC /* algemeen.mp3 */,
+				594879F623A6BA5E009874DC /* bridge.mp3 */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
+		594879F923A6CE7D009874DC /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				594879EA23A529D4009874DC /* Platform.swift */,
+				594879EC23A52A1A009874DC /* Bridge.swift */,
+				594879EE23A52A30009874DC /* Player.swift */,
+			);
+			name = objects;
 			sourceTree = "<group>";
 		};
 		59B100DF2379D6F50009004A = {
@@ -104,7 +142,6 @@
 		59B100EA2379D6F50009004A /* PersonalProject */ = {
 			isa = PBXGroup;
 			children = (
-				594879F023A68EF8009874DC /* usdz files */,
 				590BA5AB23A3FF9C004F1077 /* Controller */,
 				590BA5A923A3FF8D004F1077 /* View */,
 				590BA5AA23A3FF93004F1077 /* Model */,
@@ -172,9 +209,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59487A0123A6F239009874DC /* tree.usdz in Resources */,
+				59487A0323A6F436009874DC /* drone.usdz in Resources */,
+				594879F723A6BA5E009874DC /* bridge.mp3 in Resources */,
 				59BCA2F8239D684A0001CE2A /* LaunchScreen.storyboard in Resources */,
+				594879FF23A6F14B009874DC /* cactus.usdz in Resources */,
 				594879F223A68F1B009874DC /* cloud.usdz in Resources */,
 				59B100F52379D6F80009004A /* Assets.xcassets in Resources */,
+				594879FD23A6ED00009874DC /* crash.mp3 in Resources */,
+				59487A0523A701FF009874DC /* player.usdz in Resources */,
+				594879F523A6B841009874DC /* algemeen.mp3 in Resources */,
 				59B100F32379D6F50009004A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +382,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = be.devine.PersonalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -356,7 +400,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = be.devine.PersonalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

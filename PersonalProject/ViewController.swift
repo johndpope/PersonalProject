@@ -74,6 +74,10 @@ class ViewController: UIViewController {
         ///timer
         stopButton.isEnabled = false
         ///end timer
+        
+        //sound
+        let audio = try! AudioFileResource.load(named: "algemeen.mp3", in: nil, inputMode: .spatial, loadingStrategy: .stream, shouldLoop: true)
+        gameAnchor.prepareAudio(audio).play()
     }
     
     @IBAction func startGame(_ sender: UIButton) {
@@ -81,10 +85,6 @@ class ViewController: UIViewController {
         coachingOverlayViewWillActivate(overlayView)
         setupCoachingOverlay()
         coachingOverlayViewDidDeactivate(overlayView)
-        
-        ///game buttons
-        startGameButton.isHidden = true
-        scoreLabel.isHidden = false
         
         arView.scene.anchors.append(gameAnchor)
         
@@ -166,15 +166,27 @@ class ViewController: UIViewController {
                 }
             }
         } else {
-            ///game over view
-            gameView.isHidden = true
-            gameOverView.isHidden = false
-            endScoreLabel.text = String(score)
-            
-            if (score > highscore) {
-                highscore = score
+            player.walkToEnd(xPos: counter/10 + 0.005)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+                self.bridgeArray[1].fall()
+                self.player.fall(xPos: self.counter/10 + 0.005)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                    let audio = try! AudioFileResource.load(named: "crash.mp3", in: nil, inputMode: .spatial, loadingStrategy: .preload, shouldLoop: false)
+                    self.player.player.prepareAudio(audio).play()
+                }
             }
-            highscoreLabel.text = String(highscore)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                ///game over view
+                self.gameView.isHidden = true
+                self.gameOverView.isHidden = false
+                self.endScoreLabel.text = String(self.score)
+                
+                if (self.score > self.highscore) {
+                    self.highscore = self.score
+                }
+                self.highscoreLabel.text = String(self.highscore)
+            }
         }
     }
     
@@ -190,7 +202,7 @@ class ViewController: UIViewController {
     
     func addStartPlatform() {
         var texture = SimpleMaterial()
-        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "04"))
+        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "metaal"))
             
         startPlatform = Platform(width: 0.05, heigth: 0.1, depth: 0.05, xPos1: 0, yPos1: 0.05, xPos2: 0, yPos2: 0.05, material: texture)
         startPlatform.add()
@@ -204,7 +216,10 @@ class ViewController: UIViewController {
         randomWidth = Double.random(in: 0.01...0.05)
         
         ///make a new platform
-        newPlatform = Platform(width: randomWidth, heigth: 0.1, depth: 0.05, xPos1: 0.4, yPos1: -0.1, xPos2: randomDistance, yPos2: 0.05, material: SimpleMaterial(color: .red, isMetallic: false))
+        var texture = SimpleMaterial()
+        texture.baseColor = try! MaterialColorParameter.texture(TextureResource.load(named: "metaal"))
+        
+        newPlatform = Platform(width: randomWidth, heigth: 0.1, depth: 0.05, xPos1: 0.4, yPos1: -0.1, xPos2: randomDistance, yPos2: 0.05, material: texture)
         newPlatform.add()
         gameAnchor.addChild(newPlatform.platform)
         newPlatform.arise()
@@ -213,7 +228,7 @@ class ViewController: UIViewController {
     
     func addPlayer() {
         ///make a player
-        player = Player(width: 0.02, heigth: 0.02, depth: 0.02, xPos: 0, yPos: 0.11, material: SimpleMaterial(color: .white, isMetallic: true), moveDistance: randomDistance)
+        player = Player(width: 0.02, heigth: 0.02, depth: 0.02, xPos: 0, yPos: 0.1, material: SimpleMaterial(color: .white, isMetallic: true), moveDistance: randomDistance)
         player.add()
         gameAnchor.addChild(player.player)
     }
@@ -245,12 +260,6 @@ class ViewController: UIViewController {
         gameAnchor.removeChild(player.player)
         
         createStartScene()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            ///game action buttons
-            self.startButton.isHidden = false
-            self.stopButton.isHidden = true
-        }
     }
     
     func addNullPlatform() {
@@ -261,6 +270,19 @@ class ViewController: UIViewController {
     func addNullBridge() {
         let nullBridge = Bridge(width: randomWidth, heigth: 0.1, depth: 0.05, xPos: -0.15, yPos: -0.1, xSink: -0.126, material: SimpleMaterial(color: .red, isMetallic: false))
         bridgeArray.append(nullBridge)
+    }
+    
+    func addEnvironment() {
+        //cloud
+        placeObject(named: "cloud", x: -0.05, y: 0.15, z: -0.15, scale: SIMD3(x: 0.1, y: 0.1, z: 0.1))
+        placeObject(named: "cloud", x: 0.07, y: 0.12, z: 0.12, scale: SIMD3(x: 0.1, y: 0.1, z: 0.1))
+        placeObject(named: "cloud", x: 0.2, y: 0.17, z: -0.1, scale: SIMD3(x: 0.15, y: 0.15, z: 0.15))
+        //drone
+        placeObject(named: "drone", x: 0.04, y: 0.15, z: -0.03, scale: SIMD3(x: 0.4, y: 0.4, z: 0.4))
+        //cactus
+        placeObject(named: "cactus", x: 0.1, y: 0, z: 0.08, scale: SIMD3(x: 0.5, y: 0.5, z: 0.5))
+        //tree
+        placeObject(named: "tree", x: 0.15, y: 0, z: -0.1, scale: SIMD3(x: 0.3, y: 0.3, z: 0.3))
     }
     
     func createStartScene() {
@@ -275,9 +297,13 @@ class ViewController: UIViewController {
         addBridge()
         addNewPlatform()
         addPlayer()
+        addEnvironment()
         
-        placeObject(named: "cloud", x: -0.05, y: 0.15, z: -0.15, scale: SIMD3(x: 0.1, y: 0.1, z: 0.1))
-        placeObject(named: "cloud", x: -0.05, y: 0.15, z: -0.15, scale: SIMD3(x: 0.1, y: 0.1, z: 0.1))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            ///game action buttons
+            self.startButton.isHidden = false
+            self.stopButton.isHidden = true
+        }
     }
     
     func placeObject(named entityName: String, x: Double, y: Double, z: Double, scale: SIMD3<Float>) {

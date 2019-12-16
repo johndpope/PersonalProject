@@ -53,6 +53,16 @@ class Bridge {
         var rotationTransform = bridge.transform
         rotationTransform.rotation = simd_quatf(angle: -.pi/2, axis: [0, 0, 1])
         bridge.move(to: rotationTransform, relativeTo: bridge.parent, duration: 1, timingFunction: .easeIn)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let audio = try! AudioFileResource.load(named: "bridge.mp3", in: nil, inputMode: .spatial, loadingStrategy: .preload, shouldLoop: false)
+            self.bridge.prepareAudio(audio).play()
+        }
+    }
+    
+    func fall() {
+        var rotationTransform = bridge.transform
+        rotationTransform.rotation = simd_quatf(angle: -.pi, axis: [0, 0, 1])
+        bridge.move(to: rotationTransform, relativeTo: bridge.parent, duration: 0.7, timingFunction: .easeIn)
     }
     
     func rotateBack() {

@@ -20,7 +20,9 @@ extension ViewController: ARCoachingOverlayViewDelegate {
     
     /// - Tag: PresentUI
     func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        startButton.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.startButton.isHidden = false
+        }
     }
 
     /// - Tag: StartOver
@@ -45,8 +47,6 @@ extension ViewController: ARCoachingOverlayViewDelegate {
         
         setActivatesAutomatically()
         
-        // Most of the virtual objects in this sample require a horizontal surface,
-        // therefore coach the user to find a horizontal plane.
         setGoal()
     }
     
